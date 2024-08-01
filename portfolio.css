@@ -298,84 +298,117 @@ h5.span {
   text-decoration: none;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 1024px) {
+  .home__title {
+    font-size: 40px;
+    margin: 50px 150px 5px 150px;
+  }
 
-  .home__title,
-  .home_brief,
-  .experience_header,
-  .project_data {
-    margin: 50px 20px 5px 20px;
-    font-size: 30px;
+  .home_brief {
+    font-size: 1.3rem;
+    margin: 1px 150px 0px 150px;
   }
 
   .experience_header {
-    margin: 50px 10px 10px 10px;
+    font-size: 40px;
+    margin: 80px 20px 20px 60px;
+  }
+
+  .carousel {
+    margin: 40px 0px 0px 40px;
+  }
+
+  .project_data {
+    font-size: 40px;
+    margin: 20px 20px 0px 50px;
   }
 
   .project-grid {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    margin: 0px 20px 100px 10px;
-  }
-
-  .carousel {
-    margin: 20px 0 0 20px;
-    width: 100%;
-    height: 200px;
-  }
-
-  .carousel-control {
-    padding: 5px;
-  }
-
-  .project-item {
-    flex: 0 0 calc(50% - 10px);
-    margin-right: 10px;
-  }
-
-  .contact {
-    flex-direction: column;
-    padding: 1rem;
-  }
-
-  .card-title-1,
-  .contact h2 {
-    font-size: 0.8rem;
+    margin: 0px 50px 80px 40px;
   }
 }
 
-@media (max-width: 480px) {
+@media screen and (max-width: 768px) {
+  .navbar-nav {
+    flex-wrap: wrap;
+  }
 
-  .home__title,
-  .home_brief,
-  .experience_header,
-  .project_data {
-    margin: 20px 10px 5px 10px;
-    font-size: 24px;
+  .navbar-nav .nav-item {
+    padding: 5px 15px;
+  }
+
+  .home {
+    padding: 5rem 0 5rem;
+  }
+
+  .home__title {
+    font-size: 30px;
+    margin: 30px 50px 5px 50px;
+  }
+
+  .home_brief {
+    font-size: 1.1rem;
+    margin: 1px 50px 0px 50px;
+  }
+
+  .experience_header {
+    font-size: 30px;
+    margin: 60px 15px 15px 40px;
   }
 
   .carousel {
-    margin: 10px 0 0 10px;
-    width: 100%;
-    height: 150px;
+    margin: 30px 0px 0px 20px;
+    width: 95%;
   }
 
-  .project-item {
-    flex: 0 0 100%;
-    margin-right: 0;
+  .project_data {
+    font-size: 30px;
+    margin: 15px 15px 0px 30px;
   }
 
-  .project-button {
-    padding: 5px 10px;
+  .project-grid {
+    grid-template-columns: 1fr;
+    margin: 0px 30px 60px 30px;
   }
 
   .contact {
     flex-direction: column;
-    padding: 1rem;
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .home__title {
+    font-size: 24px;
+    margin: 20px 20px 5px 20px;
   }
 
-  .card-title-1,
-  .contact h2 {
-    font-size: 0.7rem;
+  .home_brief {
+    font-size: 1rem;
+    margin: 1px 20px 0px 20px;
+  }
+
+  .experience_header {
+    font-size: 24px;
+    margin: 40px 10px 10px 20px;
+  }
+
+  .carousel {
+    margin: 20px 0px 0px 10px;
+  }
+
+  .project_data {
+    font-size: 24px;
+    margin: 10px 10px 0px 20px;
+  }
+
+  .project-grid {
+    margin: 0px 20px 40px 20px;
+  }
+
+  .modal-content {
+    width: 90%;
+    left: 50%;
   }
 }
