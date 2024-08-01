@@ -332,10 +332,14 @@ h5.span {
 @media screen and (max-width: 768px) {
   .navbar-nav {
     flex-wrap: wrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px 0;
   }
 
   .navbar-nav .nav-item {
-    padding: 5px 15px;
+    flex-shrink: 0;
+    padding: 5px 10px;
   }
 
   .home {
@@ -348,8 +352,10 @@ h5.span {
   }
 
   .home_brief {
-    font-size: 1.1rem;
-    margin: 1px 50px 0px 50px;
+    font-size: 1rem;
+    margin: 1px 20px 20px 20px;
+    max-height: 60vh;
+    overflow-y: auto;
   }
 
   .experience_header {
@@ -374,24 +380,44 @@ h5.span {
 
   .contact {
     flex-direction: column;
-    padding: 2rem 1.5rem;
+    padding: 1rem;
+  }
+
+  .card-title-1 {
+    margin: 10px 0;
+    font-size: 0.9rem;
+  }
+
+  .list {
+    margin: 10px 0;
+    font-size: 0.9rem;
+  }
+
+  .contact h2 {
+    font-size: 0.9rem;
   }
 }
 
 @media screen and (max-width: 480px) {
+
+  .navbar-nav .nav-item {
+    padding: 5px 8px;
+  }
+
   .home__title {
-    font-size: 24px;
-    margin: 20px 20px 5px 20px;
+    font-size: 22px;
+    margin: 15px 15px 5px 15px;
   }
 
   .home_brief {
-    font-size: 1rem;
-    margin: 1px 20px 0px 20px;
+    font-size: 0.9rem;
+    margin: 1px 15px 15px 15px;
+    max-height: 50vh;
   }
 
   .experience_header {
-    font-size: 24px;
-    margin: 40px 10px 10px 20px;
+    font-size: 22px;
+    margin: 30px 10px 10px 15px;
   }
 
   .carousel {
@@ -399,16 +425,91 @@ h5.span {
   }
 
   .project_data {
-    font-size: 24px;
-    margin: 10px 10px 0px 20px;
+    font-size: 22px;
+    margin: 10px 10px 0px 15px;
   }
 
   .project-grid {
-    margin: 0px 20px 40px 20px;
+    margin: 0px 15px 30px 15px;
   }
 
   .modal-content {
     width: 90%;
     left: 50%;
+  }
+
+  .contact {
+    padding: 0.8rem;
+  }
+
+  .card-title-1 {
+    font-size: 0.8rem;
+  }
+
+  .list {
+    font-size: 0.8rem;
+  }
+
+  .contact h2 {
+    font-size: 0.8rem;
+  }
+}
+
+
+/* New media query for portrait mode */
+@media screen and (max-width: 480px) and (orientation: portrait) {
+  .navbar-nav {
+    justify-content: flex-start;
+    padding: 5px 0;
+  }
+
+  .navbar-nav .nav-item {
+    padding: 3px 6px;
+    font-size: 0.9rem;
+  }
+
+  .home {
+    padding: 3rem 0 3rem;
+  }
+
+  .home__title {
+    font-size: 20px;
+    margin: 10px 10px 5px 10px;
+  }
+
+  .home_brief {
+    font-size: 0.85rem;
+    margin: 1px 10px 10px 10px;
+    max-height: 40vh;
+  }
+
+  .experience_header {
+    font-size: 20px;
+    margin: 20px 10px 10px 10px;
+  }
+
+  .carousel {
+    margin: 15px 0px 0px 5px;
+    width: 95%;
+  }
+
+  .project_data {
+    font-size: 20px;
+    margin: 10px 10px 0px 10px;
+  }
+
+  .project-grid {
+    margin: 0px 10px 20px 10px;
+  }
+
+  .contact {
+    padding: 0.6rem;
+  }
+
+  .card-title-1,
+  .list,
+  .contact h2 {
+    font-size: 0.75rem;
+    margin: 5px 0;
   }
 }
