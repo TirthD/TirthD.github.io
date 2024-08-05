@@ -329,86 +329,180 @@ h5.span {
   }
 }
 
+
 @media screen and (max-width: 768px) {
   .navbar-nav {
-    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    padding: 5px 0;
-    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px 0;
+    background-color: rgba(255, 255, 255, 0.95);
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
 
   .navbar-nav .nav-item {
     flex-shrink: 0;
-    padding: 5px 10px;
+    padding: 5px 15px;
     white-space: nowrap;
+    font-size: 0.9rem;
   }
 
   .home {
-    padding: 5rem 0 5rem;
+    padding-top: 70px;
+    /* Increased padding to account for fixed navbar */
   }
 
   .home__title {
-    font-size: 30px;
-    margin: 30px 50px 5px 50px;
+    font-size: 36px;
+    margin: 20px 30px 10px 30px;
   }
 
   .home_brief {
-    font-size: 1rem;
-    margin: 1px 20px 20px 20px;
-    max-height: 60vh;
-    overflow-y: auto;
+    font-size: 1.1rem;
+    margin: 1px 30px 30px 30px;
+    max-height: none;
   }
 
   .experience_header {
-    font-size: 30px;
-    margin: 60px 15px 15px 40px;
+    font-size: 32px;
+    margin: 40px 20px 20px 30px;
   }
 
   .carousel {
-    margin: 30px 0px 0px 20px;
-    width: 95%;
-    overflow-y: auto;
-  }
-
-  .carousel-items {
-    height: auto;
+    margin: 30px 20px;
+    width: calc(100% - 40px);
   }
 
   .project_data {
-    font-size: 30px;
-    margin: 15px 15px 0px 30px;
+    font-size: 32px;
+    margin: 20px 20px 10px 30px;
   }
 
   .project-grid {
-    grid-template-columns: 1fr;
-    margin: 0px 30px 60px 30px;
+    margin: 0px 20px 40px 20px;
   }
 
   .contact {
-    flex-direction: column;
-    padding: 1rem;
+    padding: 30px 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
   }
 
-  .card-title-1, .list, .contact h2 {
+  .contact>div {
+    flex: 0 0 48%;
+    /* Two columns layout */
+    margin-bottom: 20px;
+  }
+
+  .card-title-1 {
+    font-size: 1rem;
+    margin: 5px 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-title-1 span {
+    font-size: 1.1rem;
+    margin-left: 10px;
+  }
+
+  .list,
+  .contact h2 {
     font-size: 0.9rem;
     margin: 5px 0;
   }
 }
 
+/* Additional media query for 720x1280 resolution */
+@media screen and (max-width: 720px) and (min-height: 1280px) {
+  .navbar-nav {
+    padding: 8px 0;
+  }
+
+  .navbar-nav .nav-item {
+    padding: 5px 12px;
+    font-size: 0.85rem;
+  }
+
+  .home__title {
+    font-size: 32px;
+    margin: 15px 25px 8px 25px;
+  }
+
+  .home_brief {
+    font-size: 1rem;
+    margin: 1px 25px 25px 25px;
+  }
+
+  .experience_header,
+  .project_data {
+    font-size: 28px;
+    margin: 30px 15px 15px 25px;
+  }
+
+  .carousel {
+    margin: 25px 15px;
+    width: calc(100% - 30px);
+  }
+
+  .project-grid {
+    margin: 0px 15px 30px 15px;
+  }
+
+  .contact {
+    padding: 25px 15px;
+  }
+
+  .card-title-1 {
+    font-size: 0.95rem;
+  }
+
+  .card-title-1 span {
+    font-size: 1rem;
+  }
+
+  .list,
+  .contact h2 {
+    font-size: 0.85rem;
+  }
+}
+
+
+
+
 @media screen and (max-width: 480px) {
+
+  .navbar-nav {
+    justify-content: flex-start;
+    padding: 5px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
 
   .navbar-nav .nav-item {
     padding: 5px 8px;
+    font-size: 0.9rem;
   }
 
   .home {
-    padding-top: 60px; /* Add space for fixed navbar */
+    padding-top: 60px;
+    /* Add space for fixed navbar */
   }
 
   .home__title {
@@ -446,11 +540,34 @@ h5.span {
   }
 
   .contact {
-    padding: 0.8rem;
+    padding: 1rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
   }
 
-  .card-title-1, .list, .contact h2 {
+  .contact>div {
+    flex: 0 0 48%;
+    /* Two columns layout */
+  }
+
+  .card-title-1 {
+    font-size: 0.9rem;
+    margin: 5px 0;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card-title-1 span {
+    font-size: 1rem;
+    margin-top: 3px;
+  }
+
+  .list,
+  .contact h2 {
     font-size: 0.8rem;
+    margin: 3px 0;
   }
 
 }
@@ -460,7 +577,14 @@ h5.span {
 @media screen and (max-width: 480px) and (orientation: portrait) {
   .navbar-nav {
     justify-content: flex-start;
-    padding: 3px 0;
+    padding: 5px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
   }
 
   .navbar-nav .nav-item {
@@ -512,5 +636,31 @@ h5.span {
   .contact h2 {
     font-size: 0.7rem;
     margin: 3px 0;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .navbar-nav .nav-item {
+    padding: 3px 6px;
+    font-size: 0.8rem;
+  }
+
+  .home__title {
+    font-size: 20px;
+  }
+
+  .home_brief {
+    font-size: 0.85rem;
+  }
+
+  .contact>div {
+    flex: 0 0 100%;
+    /* Single column layout for very small screens */
+  }
+
+  .card-title-1,
+  .list,
+  .contact h2 {
+    font-size: 0.75rem;
   }
 }
