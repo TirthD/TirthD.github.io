@@ -377,8 +377,13 @@ h5.span {
   }
 
   .carousel {
-    margin: 30px 20px;
-    width: calc(100% - 40px);
+    margin: 30px 0px 0px 20px;
+    width: 95%;
+    overflow-y: auto;
+  }
+
+  .carousel-items {
+    height: auto;
   }
 
   .project_data {
