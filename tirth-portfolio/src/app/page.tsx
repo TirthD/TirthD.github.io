@@ -5,15 +5,13 @@ import Education from "@/components/sections/Education";
 import Projects from "@/components/sections/Projects";
 import RoleFilter from "@/components/sections/RoleFilter";
 import Contact from "@/components/sections/Contact";
-import FloatingStickers from "@/components/stickers/FloatingStickers";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <>
-      <FloatingStickers />
       <Navbar />
-      <main className="relative z-10">
+      <main>
         <Hero />
         <Experience />
         <Education />
