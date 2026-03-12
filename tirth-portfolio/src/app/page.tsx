@@ -12,8 +12,8 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <FloatingStickers />
       <main className="relative">
+        <FloatingStickers />
         <Hero />
         <Experience />
         <Education />

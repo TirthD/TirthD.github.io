@@ -177,17 +177,17 @@ export default function FloatingStickers() {
   }, []);
 
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none z-40 hidden sm:block">
+    <div className="absolute top-0 left-0 w-full overflow-hidden pointer-events-none z-40 hidden sm:block" style={{ height: "100%" }}>
       {placements.map((s, i) => (
         <div
           key={i}
-          className="absolute opacity-45 transition-opacity"
+          className="absolute opacity-45"
           style={{
             left: s.x,
-            top: s.y - scrollY * s.speed,
+            top: s.y,
             width: s.size,
             height: s.size,
-            transform: `rotate(${s.rot + scrollY * 0.008}deg)`,
+            transform: `translateY(${scrollY * -s.speed * 5}px) rotate(${s.rot + scrollY * 0.01}deg)`,
             willChange: "transform",
           }}
         >
