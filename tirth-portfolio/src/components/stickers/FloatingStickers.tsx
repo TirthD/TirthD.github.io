@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 
 const BLUE = "#0071E3";
 const GRAY = "#86868b";
@@ -122,15 +122,106 @@ const stickerSVGs: Record<string, React.ReactNode> = {
       <circle cx="58" cy="55" r="5" fill="white" stroke={BLUE} strokeWidth="1.5" />
     </svg>
   ),
+  // ─── NEW STICKERS ───
+  dna: (
+    <svg viewBox="0 0 80 80" fill="none">
+      <path d="M30 8c0 16 20 16 20 32s-20 16-20 32" stroke={BLUE} strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M50 8c0 16-20 16-20 32s20 16 20 32" stroke={BLUE} strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
+      <line x1="32" y1="16" x2="48" y2="16" stroke={GRAY} strokeWidth="1" opacity="0.5" />
+      <line x1="30" y1="24" x2="50" y2="24" stroke={GRAY} strokeWidth="1" opacity="0.5" />
+      <line x1="34" y1="40" x2="46" y2="40" stroke={GRAY} strokeWidth="1" opacity="0.5" />
+      <line x1="30" y1="56" x2="50" y2="56" stroke={GRAY} strokeWidth="1" opacity="0.5" />
+      <line x1="32" y1="64" x2="48" y2="64" stroke={GRAY} strokeWidth="1" opacity="0.5" />
+    </svg>
+  ),
+  terminal: (
+    <svg viewBox="0 0 80 80" fill="none">
+      <rect x="10" y="16" width="60" height="48" rx="6" stroke={BLUE} strokeWidth="1.5" />
+      <path d="M10 28h60" stroke={BLUE} strokeWidth="1" opacity="0.3" />
+      <circle cx="18" cy="22" r="2" fill="#FF5F56" opacity="0.7" />
+      <circle cx="26" cy="22" r="2" fill="#FFBD2E" opacity="0.7" />
+      <circle cx="34" cy="22" r="2" fill="#27C93F" opacity="0.7" />
+      <path d="M22 38l8 6-8 6" stroke={BLUE} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M36 50h16" stroke={GRAY} strokeWidth="1.5" strokeLinecap="round" strokeDasharray="3 2" />
+    </svg>
+  ),
+  pi: (
+    <svg viewBox="0 0 80 80" fill="none">
+      <path d="M20 28h40" stroke={BLUE} strokeWidth="2" strokeLinecap="round" />
+      <path d="M30 28v30" stroke={BLUE} strokeWidth="2" strokeLinecap="round" />
+      <path d="M50 28v24c0 4-2 6-6 6" stroke={BLUE} strokeWidth="2" strokeLinecap="round" />
+      <circle cx="40" cy="18" r="3" fill={BLUE} opacity="0.3" />
+      <circle cx="40" cy="18" r="1.5" fill={BLUE} opacity="0.6" />
+    </svg>
+  ),
+  lambda: (
+    <svg viewBox="0 0 80 80" fill="none">
+      <path d="M24 64L40 16l16 48" stroke={BLUE} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M30 48h20" stroke={GRAY} strokeWidth="1" strokeDasharray="3 2" opacity="0.5" />
+      <circle cx="40" cy="16" r="3" stroke={BLUE} strokeWidth="1" opacity="0.4" />
+    </svg>
+  ),
+  flask: (
+    <svg viewBox="0 0 80 80" fill="none">
+      <path d="M32 12v20l-14 28a4 4 0 003.5 6h37a4 4 0 003.5-6L48 32V12" stroke={BLUE} strokeWidth="1.5" strokeLinejoin="round" />
+      <path d="M28 12h24" stroke={BLUE} strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M24 52h32" stroke={BLUE} strokeWidth="1" opacity="0.3" />
+      <circle cx="35" cy="56" r="2.5" fill={BLUE} opacity="0.3" />
+      <circle cx="44" cy="54" r="2" fill={BLUE} opacity="0.2" />
+      <circle cx="40" cy="60" r="1.5" fill={BLUE} opacity="0.4" />
+    </svg>
+  ),
+  fractal: (
+    <svg viewBox="0 0 80 80" fill="none">
+      <path d="M40 10L10 65h60z" stroke={BLUE} strokeWidth="1.5" strokeLinejoin="round" />
+      <path d="M25 65l15-27.5L55 65z" stroke={BLUE} strokeWidth="1" opacity="0.5" strokeLinejoin="round" />
+      <path d="M17.5 65l7.5-13.75L32.5 65z" stroke={BLUE} strokeWidth="0.8" opacity="0.3" strokeLinejoin="round" />
+      <path d="M47.5 65l7.5-13.75L62.5 65z" stroke={BLUE} strokeWidth="0.8" opacity="0.3" strokeLinejoin="round" />
+      <path d="M32.5 37.5l7.5-13.75L47.5 37.5z" stroke={BLUE} strokeWidth="0.8" opacity="0.3" strokeLinejoin="round" />
+    </svg>
+  ),
+  curlybraces: (
+    <svg viewBox="0 0 80 80" fill="none">
+      <path d="M30 12c-8 0-10 4-10 10v10c0 4-4 6-8 8 4 2 8 4 8 8v10c0 6 2 10 10 10" stroke={BLUE} strokeWidth="2" strokeLinecap="round" fill="none" />
+      <path d="M50 12c8 0 10 4 10 10v10c0 4 4 6 8 8-4 2-8 4-8 8v10c0 6-2 10-10 10" stroke={BLUE} strokeWidth="2" strokeLinecap="round" fill="none" />
+      <circle cx="40" cy="40" r="2" fill={BLUE} opacity="0.4" />
+    </svg>
+  ),
+  sinewave: (
+    <svg viewBox="0 0 80 80" fill="none">
+      <path d="M5 40c5-20 15-20 20 0s15 20 20 0 15-20 20 0 15 20 20 0" stroke={BLUE} strokeWidth="1.8" strokeLinecap="round" fill="none" />
+      <path d="M5 40h70" stroke={GRAY} strokeWidth="0.5" opacity="0.3" />
+      <path d="M40 20v40" stroke={GRAY} strokeWidth="0.5" opacity="0.3" />
+    </svg>
+  ),
+  magnifier: (
+    <svg viewBox="0 0 80 80" fill="none">
+      <circle cx="34" cy="34" r="18" stroke={BLUE} strokeWidth="1.8" />
+      <path d="M47 47l16 16" stroke={BLUE} strokeWidth="2.5" strokeLinecap="round" />
+      <circle cx="34" cy="34" r="8" stroke={BLUE} strokeWidth="1" opacity="0.2" />
+    </svg>
+  ),
+  lock: (
+    <svg viewBox="0 0 80 80" fill="none">
+      <rect x="20" y="36" width="40" height="30" rx="4" stroke={BLUE} strokeWidth="1.8" />
+      <path d="M28 36V26a12 12 0 0124 0v10" stroke={BLUE} strokeWidth="1.8" strokeLinecap="round" fill="none" />
+      <circle cx="40" cy="50" r="4" fill={BLUE} opacity="0.5" />
+      <path d="M40 54v6" stroke={BLUE} strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  ),
 };
 
-// Sticker order — each group of 4 is for one section
+// 24 unique stickers — 4 per light section, none on dark sections
 const stickerOrder = [
-  "atom", "cpu", "infinity", "binary",           // Hero
-  "neuralnet", "rocket", "code", "sigma",         // Experience
-  "integral", "graph", "matrix", "cloud",         // Education
-  // Projects & Contact are dark — no stickers
-  "circuit", "database",                          // Roles (just 2)
+  "atom", "cpu", "infinity", "binary",             // Hero
+  "neuralnet", "rocket", "code", "sigma",           // Experience
+  "integral", "graph", "matrix", "cloud",           // Education
+  // Projects section is dark — skip
+  "circuit", "database", "dna", "terminal",         // Roles
+  // Contact section is dark — skip
+  // Extra stickers fill gaps
+  "pi", "lambda", "flask", "fractal",
+  "curlybraces", "sinewave", "magnifier", "lock",
 ];
 
 export default function FloatingStickers() {
@@ -144,8 +235,6 @@ export default function FloatingStickers() {
     measure();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", measure);
-
-    // Re-measure after content loads
     const timer = setTimeout(measure, 1000);
 
     return () => {
@@ -155,21 +244,20 @@ export default function FloatingStickers() {
     };
   }, []);
 
-  // Only show on light sections (roughly top 65% of page)
-  const lightZoneHeight = pageHeight * 0.65;
+  // Light sections are roughly the top 60% of the page
+  const lightZoneHeight = pageHeight * 0.60;
 
-  // Build placements dynamically based on actual page height
   const placements = stickerOrder.map((type, i) => {
     const isLeft = i % 2 === 0;
     const totalStickers = stickerOrder.length;
-    const yPos = (lightZoneHeight / totalStickers) * i + 100;
+    const yPos = (lightZoneHeight / totalStickers) * i + 80;
 
     return {
       type,
-      x: isLeft ? `${3 + (i % 3)}%` : `${88 + (i % 3)}%`,
+      x: isLeft ? `${3 + (i % 3)}%` : `${88 + (i % 4)}%`,
       y: yPos,
       size: 52 + (i % 4) * 4,
-      speed: 0.02 + (i % 3) * 0.01,
+      speed: 0.02 + (i % 3) * 0.005,
       rot: ((i * 7) % 20) - 10,
     };
   });
