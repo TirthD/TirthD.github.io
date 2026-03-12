@@ -126,9 +126,9 @@ const stickerSVGs: Record<string, React.ReactNode> = {
   ),
 };
 
-// Each section gets 4 unique stickers (2 left, 2 right)
+// Each section gets 4 UNIQUE stickers (2 left, 2 right) — no repeats
 // Hero ~0-800, Experience ~800-1800, Education ~1800-2600
-// Projects ~2600-3600, Roles ~3600-4600, Contact ~4600-5400
+// Projects ~2600-3600, Roles ~3600-4600, Contact ~4600-5600
 const placements = [
   // ─── Hero Section ───
   { type: "atom",      x: "3%",  y: 120,  size: 64, speed: 0.03, rot: 10 },
@@ -148,23 +148,14 @@ const placements = [
   { type: "matrix",    x: "3%",  y: 2300, size: 54, speed: 0.02, rot: -6 },
   { type: "cloud",     x: "90%", y: 2350, size: 60, speed: 0.03, rot: 10 },
 
-  // ─── Projects Section ───
-  { type: "circuit",   x: "4%",  y: 2700, size: 60, speed: 0.02, rot: 7 },
-  { type: "database",  x: "92%", y: 2750, size: 58, speed: 0.03, rot: -7 },
-  { type: "atom",      x: "3%",  y: 3150, size: 56, speed: 0.03, rot: -5 },
-  { type: "neuralnet", x: "89%", y: 3200, size: 62, speed: 0.02, rot: 9 },
+  // ─── Projects Section (dark bg — stickers won't show, skip) ───
 
   // ─── Roles Section ───
-  { type: "rocket",    x: "5%",  y: 3700, size: 58, speed: 0.03, rot: -8 },
-  { type: "binary",    x: "91%", y: 3750, size: 54, speed: 0.02, rot: 12 },
-  { type: "sigma",     x: "4%",  y: 4100, size: 52, speed: 0.02, rot: 6 },
-  { type: "cpu",       x: "90%", y: 4150, size: 60, speed: 0.03, rot: -10 },
+  { type: "circuit",   x: "4%",  y: 3700, size: 60, speed: 0.02, rot: 7 },
+  { type: "database",  x: "92%", y: 3750, size: 58, speed: 0.03, rot: -7 },
 
-  // ─── Contact Section ───
-  { type: "infinity",  x: "3%",  y: 4700, size: 56, speed: 0.02, rot: 11 },
-  { type: "code",      x: "92%", y: 4750, size: 54, speed: 0.03, rot: -7 },
-  { type: "graph",     x: "5%",  y: 5100, size: 58, speed: 0.03, rot: -3 },
-  { type: "integral",  x: "89%", y: 5150, size: 52, speed: 0.02, rot: 8 },
+  // ─── Contact Section (dark bg) ───
+  // No stickers on dark sections — they clash
 ];
 
 export default function FloatingStickers() {
@@ -181,7 +172,7 @@ export default function FloatingStickers() {
       {placements.map((s, i) => (
         <div
           key={i}
-          className="absolute opacity-45"
+          className="absolute opacity-60"
           style={{
             left: s.x,
             top: s.y,
