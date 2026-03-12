@@ -11,9 +11,9 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <>
+      <FloatingStickers />
       <Navbar />
-      <main className="relative">
-        <FloatingStickers />
+      <main className="relative z-10">
         <Hero />
         <Experience />
         <Education />
