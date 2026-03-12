@@ -269,7 +269,7 @@ export default function FloatingStickers() {
       {placements.map((s, i) => (
         <div
           key={i}
-          className="absolute opacity-60"
+          className="absolute opacity-80"
           style={{
             left: s.x,
             top: s.y,
