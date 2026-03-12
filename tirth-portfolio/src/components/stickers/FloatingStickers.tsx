@@ -168,11 +168,11 @@ export default function FloatingStickers() {
   }, []);
 
   return (
-    <div className="absolute top-0 left-0 w-full overflow-hidden pointer-events-none z-40 hidden sm:block" style={{ height: "100%" }}>
+    <div className="absolute top-0 left-0 w-full overflow-visible pointer-events-none z-40 hidden sm:block" style={{ height: 0 }}>
       {placements.map((s, i) => (
         <div
           key={i}
-          className="absolute opacity-60"
+          className="absolute opacity-75"
           style={{
             left: s.x,
             top: s.y,
