@@ -155,7 +155,7 @@ export default function FloatingStickers() {
   }, []);
 
   return (
-    <div className="fixed inset-0 overflow-hidden pointer-events-none z-1 hidden sm:block">
+    <div className="fixed inset-0 overflow-hidden pointer-events-none z-[1] hidden sm:block">
       {placements.map((s, i) => (
         <div
           key={i}
