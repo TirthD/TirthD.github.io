@@ -34,11 +34,11 @@ const stickerSVGs: Record<string, React.ReactNode> = {
   ),
   neuralnet: (
     <svg viewBox="0 0 80 80" fill="none">
-      {[20, 40, 60].map((y) => <circle key={`a${y}`} cx="15" cy={y} r="3.5" fill={BLUE} opacity="0.5" />)}
-      {[25, 40, 55].map((y) => <circle key={`b${y}`} cx="40" cy={y} r="3.5" fill={BLUE} opacity="0.6" />)}
-      {[30, 50].map((y) => <circle key={`c${y}`} cx="65" cy={y} r="3.5" fill={BLUE} opacity="0.5" />)}
-      {[20, 40, 60].map((y1) => [25, 40, 55].map((y2) => <line key={`l1-${y1}-${y2}`} x1="18.5" y1={y1} x2="36.5" y2={y2} stroke={BLUE} strokeWidth="0.6" opacity="0.25" />))}
-      {[25, 40, 55].map((y1) => [30, 50].map((y2) => <line key={`l2-${y1}-${y2}`} x1="43.5" y1={y1} x2="61.5" y2={y2} stroke={BLUE} strokeWidth="0.6" opacity="0.25" />))}
+      {[20,40,60].map(y=><circle key={`a${y}`} cx="15" cy={y} r="3.5" fill={BLUE} opacity="0.5"/>)}
+      {[25,40,55].map(y=><circle key={`b${y}`} cx="40" cy={y} r="3.5" fill={BLUE} opacity="0.6"/>)}
+      {[30,50].map(y=><circle key={`c${y}`} cx="65" cy={y} r="3.5" fill={BLUE} opacity="0.5"/>)}
+      {[20,40,60].map(y1=>[25,40,55].map(y2=><line key={`l1-${y1}-${y2}`} x1="18.5" y1={y1} x2="36.5" y2={y2} stroke={BLUE} strokeWidth="0.6" opacity="0.25"/>))}
+      {[25,40,55].map(y1=>[30,50].map(y2=><line key={`l2-${y1}-${y2}`} x1="43.5" y1={y1} x2="61.5" y2={y2} stroke={BLUE} strokeWidth="0.6" opacity="0.25"/>))}
     </svg>
   ),
   database: (
@@ -108,21 +108,6 @@ const stickerSVGs: Record<string, React.ReactNode> = {
       <path d="M32 22v-8M40 22v-8M48 22v-8M32 58v8M40 58v8M48 58v8M22 32h-8M22 40h-8M22 48h-8M58 32h8M58 40h8M58 48h8" stroke={GRAY} strokeWidth="1.2" strokeLinecap="round" />
     </svg>
   ),
-  graph: (
-    <svg viewBox="0 0 80 80" fill="none">
-      <line x1="20" y1="20" x2="40" y2="35" stroke={BLUE} strokeWidth="1" opacity="0.4" />
-      <line x1="60" y1="18" x2="40" y2="35" stroke={BLUE} strokeWidth="1" opacity="0.4" />
-      <line x1="40" y1="35" x2="25" y2="58" stroke={BLUE} strokeWidth="1" opacity="0.4" />
-      <line x1="40" y1="35" x2="58" y2="55" stroke={BLUE} strokeWidth="1" opacity="0.4" />
-      <line x1="25" y1="58" x2="58" y2="55" stroke={BLUE} strokeWidth="1" opacity="0.3" />
-      <circle cx="20" cy="20" r="5" fill="white" stroke={BLUE} strokeWidth="1.5" />
-      <circle cx="60" cy="18" r="5" fill="white" stroke={BLUE} strokeWidth="1.5" />
-      <circle cx="40" cy="35" r="6" fill={BLUE} opacity="0.15" stroke={BLUE} strokeWidth="1.5" />
-      <circle cx="25" cy="58" r="5" fill="white" stroke={BLUE} strokeWidth="1.5" />
-      <circle cx="58" cy="55" r="5" fill="white" stroke={BLUE} strokeWidth="1.5" />
-    </svg>
-  ),
-  // ─── NEW STICKERS ───
   dna: (
     <svg viewBox="0 0 80 80" fill="none">
       <path d="M30 8c0 16 20 16 20 32s-20 16-20 32" stroke={BLUE} strokeWidth="1.5" strokeLinecap="round" />
@@ -131,7 +116,6 @@ const stickerSVGs: Record<string, React.ReactNode> = {
       <line x1="30" y1="24" x2="50" y2="24" stroke={GRAY} strokeWidth="1" opacity="0.5" />
       <line x1="34" y1="40" x2="46" y2="40" stroke={GRAY} strokeWidth="1" opacity="0.5" />
       <line x1="30" y1="56" x2="50" y2="56" stroke={GRAY} strokeWidth="1" opacity="0.5" />
-      <line x1="32" y1="64" x2="48" y2="64" stroke={GRAY} strokeWidth="1" opacity="0.5" />
     </svg>
   ),
   terminal: (
@@ -145,15 +129,6 @@ const stickerSVGs: Record<string, React.ReactNode> = {
       <path d="M36 50h16" stroke={GRAY} strokeWidth="1.5" strokeLinecap="round" strokeDasharray="3 2" />
     </svg>
   ),
-  pi: (
-    <svg viewBox="0 0 80 80" fill="none">
-      <path d="M20 28h40" stroke={BLUE} strokeWidth="2" strokeLinecap="round" />
-      <path d="M30 28v30" stroke={BLUE} strokeWidth="2" strokeLinecap="round" />
-      <path d="M50 28v24c0 4-2 6-6 6" stroke={BLUE} strokeWidth="2" strokeLinecap="round" />
-      <circle cx="40" cy="18" r="3" fill={BLUE} opacity="0.3" />
-      <circle cx="40" cy="18" r="1.5" fill={BLUE} opacity="0.6" />
-    </svg>
-  ),
   lambda: (
     <svg viewBox="0 0 80 80" fill="none">
       <path d="M24 64L40 16l16 48" stroke={BLUE} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -161,121 +136,57 @@ const stickerSVGs: Record<string, React.ReactNode> = {
       <circle cx="40" cy="16" r="3" stroke={BLUE} strokeWidth="1" opacity="0.4" />
     </svg>
   ),
-  flask: (
-    <svg viewBox="0 0 80 80" fill="none">
-      <path d="M32 12v20l-14 28a4 4 0 003.5 6h37a4 4 0 003.5-6L48 32V12" stroke={BLUE} strokeWidth="1.5" strokeLinejoin="round" />
-      <path d="M28 12h24" stroke={BLUE} strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M24 52h32" stroke={BLUE} strokeWidth="1" opacity="0.3" />
-      <circle cx="35" cy="56" r="2.5" fill={BLUE} opacity="0.3" />
-      <circle cx="44" cy="54" r="2" fill={BLUE} opacity="0.2" />
-      <circle cx="40" cy="60" r="1.5" fill={BLUE} opacity="0.4" />
-    </svg>
-  ),
-  fractal: (
-    <svg viewBox="0 0 80 80" fill="none">
-      <path d="M40 10L10 65h60z" stroke={BLUE} strokeWidth="1.5" strokeLinejoin="round" />
-      <path d="M25 65l15-27.5L55 65z" stroke={BLUE} strokeWidth="1" opacity="0.5" strokeLinejoin="round" />
-      <path d="M17.5 65l7.5-13.75L32.5 65z" stroke={BLUE} strokeWidth="0.8" opacity="0.3" strokeLinejoin="round" />
-      <path d="M47.5 65l7.5-13.75L62.5 65z" stroke={BLUE} strokeWidth="0.8" opacity="0.3" strokeLinejoin="round" />
-      <path d="M32.5 37.5l7.5-13.75L47.5 37.5z" stroke={BLUE} strokeWidth="0.8" opacity="0.3" strokeLinejoin="round" />
-    </svg>
-  ),
-  curlybraces: (
-    <svg viewBox="0 0 80 80" fill="none">
-      <path d="M30 12c-8 0-10 4-10 10v10c0 4-4 6-8 8 4 2 8 4 8 8v10c0 6 2 10 10 10" stroke={BLUE} strokeWidth="2" strokeLinecap="round" fill="none" />
-      <path d="M50 12c8 0 10 4 10 10v10c0 4 4 6 8 8-4 2-8 4-8 8v10c0 6-2 10-10 10" stroke={BLUE} strokeWidth="2" strokeLinecap="round" fill="none" />
-      <circle cx="40" cy="40" r="2" fill={BLUE} opacity="0.4" />
-    </svg>
-  ),
-  sinewave: (
-    <svg viewBox="0 0 80 80" fill="none">
-      <path d="M5 40c5-20 15-20 20 0s15 20 20 0 15-20 20 0 15 20 20 0" stroke={BLUE} strokeWidth="1.8" strokeLinecap="round" fill="none" />
-      <path d="M5 40h70" stroke={GRAY} strokeWidth="0.5" opacity="0.3" />
-      <path d="M40 20v40" stroke={GRAY} strokeWidth="0.5" opacity="0.3" />
-    </svg>
-  ),
-  magnifier: (
-    <svg viewBox="0 0 80 80" fill="none">
-      <circle cx="34" cy="34" r="18" stroke={BLUE} strokeWidth="1.8" />
-      <path d="M47 47l16 16" stroke={BLUE} strokeWidth="2.5" strokeLinecap="round" />
-      <circle cx="34" cy="34" r="8" stroke={BLUE} strokeWidth="1" opacity="0.2" />
-    </svg>
-  ),
-  lock: (
-    <svg viewBox="0 0 80 80" fill="none">
-      <rect x="20" y="36" width="40" height="30" rx="4" stroke={BLUE} strokeWidth="1.8" />
-      <path d="M28 36V26a12 12 0 0124 0v10" stroke={BLUE} strokeWidth="1.8" strokeLinecap="round" fill="none" />
-      <circle cx="40" cy="50" r="4" fill={BLUE} opacity="0.5" />
-      <path d="M40 54v6" stroke={BLUE} strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  ),
 };
 
-// 16 unique stickers — nicely spaced, no repeats
-const stickerOrder = [
-  "atom", "cpu",                                    // Hero
-  "neuralnet", "binary",                            // Hero → Experience
-  "rocket", "code",                                 // Experience
-  "sigma", "terminal",                              // Experience → Education
-  "integral", "graph",                              // Education
-  "matrix", "cloud",                                // Education → Projects
-  "dna", "flask",                                   // Projects (edges)
-  "circuit", "lambda",                              // Roles
+// Simple hardcoded positions using vh units — no dynamic calculation needed
+// Left stickers at 3-5%, right stickers at 89-92%
+const placements: { type: string; x: string; y: string; size: number; rot: number }[] = [
+  // Hero
+  { type: "atom",      x: "3%",  y: "5vh",   size: 64, rot: 10 },
+  { type: "cpu",       x: "90%", y: "12vh",  size: 58, rot: -6 },
+
+  // Experience
+  { type: "neuralnet", x: "4%",  y: "22vh",  size: 62, rot: 12 },
+  { type: "binary",    x: "89%", y: "28vh",  size: 54, rot: -8 },
+  { type: "rocket",    x: "3%",  y: "35vh",  size: 58, rot: -10 },
+  { type: "sigma",     x: "91%", y: "40vh",  size: 52, rot: 5 },
+
+  // Education
+  { type: "integral",  x: "5%",  y: "50vh",  size: 52, rot: -12 },
+  { type: "dna",       x: "90%", y: "56vh",  size: 58, rot: 7 },
+  { type: "matrix",    x: "4%",  y: "62vh",  size: 54, rot: -6 },
+  { type: "cloud",     x: "89%", y: "67vh",  size: 60, rot: 10 },
+
+  // Roles
+  { type: "circuit",   x: "3%",  y: "115vh", size: 60, rot: 7 },
+  { type: "terminal",  x: "91%", y: "120vh", size: 56, rot: -7 },
+  { type: "code",      x: "5%",  y: "128vh", size: 54, rot: -5 },
+  { type: "lambda",    x: "90%", y: "134vh", size: 58, rot: 9 },
+  { type: "infinity",  x: "4%",  y: "142vh", size: 56, rot: -8 },
+  { type: "database",  x: "89%", y: "148vh", size: 60, rot: 6 },
 ];
 
 export default function FloatingStickers() {
-  const [pageHeight, setPageHeight] = useState(0);
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
-    const measure = () => setPageHeight(document.body.scrollHeight);
     const onScroll = () => setScrollY(window.scrollY);
-
-    measure();
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", measure);
-    const timer = setTimeout(measure, 1000);
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", measure);
-      clearTimeout(timer);
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Cover everything except the last dark section (Contact + Footer)
-  const lightZoneHeight = pageHeight * 0.82;
-
-  const placements = stickerOrder.map((type, i) => {
-    const isLeft = i % 2 === 0;
-    const totalStickers = stickerOrder.length;
-    const yPos = (lightZoneHeight / totalStickers) * i + 80;
-
-    return {
-      type,
-      x: isLeft ? `${3 + (i % 3)}%` : `${88 + (i % 4)}%`,
-      y: yPos,
-      size: 52 + (i % 4) * 4,
-      speed: 0.02 + (i % 3) * 0.005,
-      rot: ((i * 7) % 20) - 10,
-    };
-  });
-
   return (
-    <div
-      className="absolute top-0 left-0 w-full pointer-events-none z-40 hidden sm:block"
-      style={{ height: lightZoneHeight }}
-    >
+    <div className="absolute top-0 left-0 w-full pointer-events-none z-40 hidden sm:block" style={{ height: 0, overflow: "visible" }}>
       {placements.map((s, i) => (
         <div
           key={i}
-          className="absolute opacity-80"
+          className="absolute opacity-60"
           style={{
             left: s.x,
             top: s.y,
             width: s.size,
             height: s.size,
-            transform: `translateY(${scrollY * -s.speed * 3}px) rotate(${s.rot + scrollY * 0.008}deg)`,
+            transform: `translateY(${scrollY * -(0.02 + (i % 3) * 0.005) * 3}px) rotate(${s.rot + scrollY * 0.008}deg)`,
             willChange: "transform",
           }}
         >
