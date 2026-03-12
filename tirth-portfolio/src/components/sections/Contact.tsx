@@ -8,7 +8,7 @@ export default function Contact() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section id="contact" className="py-20 sm:py-28 lg:py-36 bg-white">
+    <section id="contact" className="py-20 sm:py-28 lg:py-36 bg-[#000000] text-white">
       <div className="max-w-5xl mx-auto px-5 sm:px-8 text-center">
         <motion.div
           ref={ref}
@@ -20,14 +20,14 @@ export default function Contact() {
             Contact
           </p>
           <h2
-            className="font-bold tracking-tight mb-4 sm:mb-6 text-[#1d1d1f]"
+            className="font-bold tracking-tight mb-4 sm:mb-6 text-white"
             style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", lineHeight: "1.1" }}
           >
             Let&rsquo;s build
             <br />
             <span className="text-[#0071E3]">together.</span>
           </h2>
-          <p className="text-sm sm:text-base text-[#6e6e73] max-w-lg mx-auto mb-10 sm:mb-12">
+          <p className="text-sm sm:text-base text-[#86868b] max-w-lg mx-auto mb-10 sm:mb-12">
             Open to opportunities in AI/ML, Data Engineering, and Cloud.
             Let&rsquo;s connect and create something impactful.
           </p>
@@ -55,8 +55,8 @@ export default function Contact() {
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-full
-                       text-[#0071E3] text-sm font-medium border border-[#0071E3]/30
-                       transition-all duration-300 hover:bg-[#0071E3]/5 hover:border-[#0071E3]/50
+                       text-white text-sm font-medium border border-white/20
+                       transition-all duration-300 hover:bg-white/10 hover:border-white/40
                        hover:scale-105 active:scale-95"
           >
             LinkedIn
@@ -66,8 +66,8 @@ export default function Contact() {
             target="_blank"
             rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 rounded-full
-                       text-[#0071E3] text-sm font-medium border border-[#0071E3]/30
-                       transition-all duration-300 hover:bg-[#0071E3]/5 hover:border-[#0071E3]/50
+                       text-white text-sm font-medium border border-white/20
+                       transition-all duration-300 hover:bg-white/10 hover:border-white/40
                        hover:scale-105 active:scale-95"
           >
             GitHub
@@ -80,7 +80,7 @@ export default function Contact() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-14 sm:mt-16 pt-8 border-t border-[#d2d2d7]/40"
+          className="mt-14 sm:mt-16 pt-8 border-t border-white/10"
         >
           <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-6 text-xs text-[#86868b]">
             <span>+1 (857) 222-1734</span>
