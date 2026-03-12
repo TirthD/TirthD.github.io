@@ -244,8 +244,8 @@ export default function FloatingStickers() {
     };
   }, []);
 
-  // Light sections are roughly the top 60% of the page
-  const lightZoneHeight = pageHeight * 0.60;
+  // Cover everything except the last dark section (Contact + Footer)
+  const lightZoneHeight = pageHeight * 0.82;
 
   const placements = stickerOrder.map((type, i) => {
     const isLeft = i % 2 === 0;
@@ -270,7 +270,7 @@ export default function FloatingStickers() {
       {placements.map((s, i) => (
         <div
           key={i}
-          className="absolute opacity-60"
+          className="absolute opacity-75"
           style={{
             left: s.x,
             top: s.y,
