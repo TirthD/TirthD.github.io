@@ -126,32 +126,45 @@ const stickerSVGs: Record<string, React.ReactNode> = {
   ),
 };
 
-// 14 stickers placed alternating left/right across the FULL page
-// Tighter spacing so multiple stickers are always visible
+// Each section gets 4 unique stickers (2 left, 2 right)
+// Hero ~0-800, Experience ~800-1800, Education ~1800-2600
+// Projects ~2600-3600, Roles ~3600-4600, Contact ~4600-5400
 const placements = [
-  { type: "atom",      x: "3%",  y: 150,  size: 64, speed: 0.03, rot: 10 },
-  { type: "cpu",       x: "90%", y: 350,  size: 58, speed: 0.02, rot: -6 },
-  { type: "neuralnet", x: "5%",  y: 600,  size: 62, speed: 0.03, rot: 12 },
-  { type: "binary",    x: "88%", y: 850,  size: 56, speed: 0.02, rot: -8 },
-  { type: "code",      x: "4%",  y: 1100, size: 54, speed: 0.03, rot: -10 },
-  { type: "sigma",     x: "92%", y: 1350, size: 52, speed: 0.02, rot: 5 },
-  { type: "database",  x: "3%",  y: 1600, size: 58, speed: 0.03, rot: -7 },
-  { type: "rocket",    x: "91%", y: 1850, size: 60, speed: 0.02, rot: 15 },
-  { type: "infinity",  x: "5%",  y: 2100, size: 56, speed: 0.03, rot: -4 },
-  { type: "circuit",   x: "89%", y: 2350, size: 60, speed: 0.02, rot: 7 },
-  { type: "integral",  x: "4%",  y: 2600, size: 52, speed: 0.03, rot: -12 },
-  { type: "graph",     x: "92%", y: 2850, size: 58, speed: 0.02, rot: 8 },
-  { type: "matrix",    x: "3%",  y: 3100, size: 54, speed: 0.03, rot: -6 },
-  { type: "cloud",     x: "90%", y: 3350, size: 60, speed: 0.02, rot: 10 },
-  // Repeat cycle for longer pages
-  { type: "atom",      x: "5%",  y: 3600, size: 58, speed: 0.03, rot: -8 },
-  { type: "rocket",    x: "89%", y: 3850, size: 56, speed: 0.02, rot: 12 },
-  { type: "neuralnet", x: "4%",  y: 4100, size: 62, speed: 0.03, rot: -5 },
-  { type: "sigma",     x: "91%", y: 4350, size: 54, speed: 0.02, rot: 9 },
-  { type: "cpu",       x: "3%",  y: 4600, size: 60, speed: 0.03, rot: -10 },
-  { type: "binary",    x: "90%", y: 4850, size: 56, speed: 0.02, rot: 6 },
-  { type: "graph",     x: "5%",  y: 5100, size: 58, speed: 0.03, rot: -7 },
-  { type: "infinity",  x: "92%", y: 5350, size: 54, speed: 0.02, rot: 11 },
+  // ─── Hero Section ───
+  { type: "atom",      x: "3%",  y: 120,  size: 64, speed: 0.03, rot: 10 },
+  { type: "cpu",       x: "91%", y: 180,  size: 58, speed: 0.02, rot: -6 },
+  { type: "infinity",  x: "4%",  y: 500,  size: 56, speed: 0.03, rot: -4 },
+  { type: "binary",    x: "90%", y: 550,  size: 52, speed: 0.02, rot: 8 },
+
+  // ─── Experience Section ───
+  { type: "neuralnet", x: "3%",  y: 900,  size: 62, speed: 0.03, rot: 12 },
+  { type: "rocket",    x: "92%", y: 950,  size: 60, speed: 0.02, rot: -8 },
+  { type: "code",      x: "5%",  y: 1350, size: 54, speed: 0.02, rot: -10 },
+  { type: "sigma",     x: "89%", y: 1400, size: 52, speed: 0.03, rot: 5 },
+
+  // ─── Education Section ───
+  { type: "integral",  x: "4%",  y: 1900, size: 52, speed: 0.03, rot: -12 },
+  { type: "graph",     x: "91%", y: 1950, size: 58, speed: 0.02, rot: 7 },
+  { type: "matrix",    x: "3%",  y: 2300, size: 54, speed: 0.02, rot: -6 },
+  { type: "cloud",     x: "90%", y: 2350, size: 60, speed: 0.03, rot: 10 },
+
+  // ─── Projects Section ───
+  { type: "circuit",   x: "4%",  y: 2700, size: 60, speed: 0.02, rot: 7 },
+  { type: "database",  x: "92%", y: 2750, size: 58, speed: 0.03, rot: -7 },
+  { type: "atom",      x: "3%",  y: 3150, size: 56, speed: 0.03, rot: -5 },
+  { type: "neuralnet", x: "89%", y: 3200, size: 62, speed: 0.02, rot: 9 },
+
+  // ─── Roles Section ───
+  { type: "rocket",    x: "5%",  y: 3700, size: 58, speed: 0.03, rot: -8 },
+  { type: "binary",    x: "91%", y: 3750, size: 54, speed: 0.02, rot: 12 },
+  { type: "sigma",     x: "4%",  y: 4100, size: 52, speed: 0.02, rot: 6 },
+  { type: "cpu",       x: "90%", y: 4150, size: 60, speed: 0.03, rot: -10 },
+
+  // ─── Contact Section ───
+  { type: "infinity",  x: "3%",  y: 4700, size: 56, speed: 0.02, rot: 11 },
+  { type: "code",      x: "92%", y: 4750, size: 54, speed: 0.03, rot: -7 },
+  { type: "graph",     x: "5%",  y: 5100, size: 58, speed: 0.03, rot: -3 },
+  { type: "integral",  x: "89%", y: 5150, size: 52, speed: 0.02, rot: 8 },
 ];
 
 export default function FloatingStickers() {
