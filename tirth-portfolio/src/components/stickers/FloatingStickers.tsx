@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 const BLUE = "#0071E3";
 const GRAY = "#86868b";
@@ -59,7 +59,6 @@ const stickerSVGs: Record<string, React.ReactNode> = {
       <path d="M44 8c-8 0-8 8-8 16v32c0 8 0 16-8 16" stroke={BLUE} strokeWidth="2.5" strokeLinecap="round" fill="none" />
       <text x="48" y="22" fontSize="10" fill={GRAY} opacity="0.5" fontFamily="serif" fontStyle="italic">b</text>
       <text x="22" y="72" fontSize="10" fill={GRAY} opacity="0.5" fontFamily="serif" fontStyle="italic">a</text>
-      <path d="M46 40h12" stroke={GRAY} strokeWidth="1" strokeDasharray="2 2" opacity="0.4" />
     </svg>
   ),
   binary: (
@@ -116,7 +115,6 @@ const stickerSVGs: Record<string, React.ReactNode> = {
       <line x1="40" y1="35" x2="25" y2="58" stroke={BLUE} strokeWidth="1" opacity="0.4" />
       <line x1="40" y1="35" x2="58" y2="55" stroke={BLUE} strokeWidth="1" opacity="0.4" />
       <line x1="25" y1="58" x2="58" y2="55" stroke={BLUE} strokeWidth="1" opacity="0.3" />
-      <line x1="20" y1="20" x2="60" y2="18" stroke={BLUE} strokeWidth="1" opacity="0.3" />
       <circle cx="20" cy="20" r="5" fill="white" stroke={BLUE} strokeWidth="1.5" />
       <circle cx="60" cy="18" r="5" fill="white" stroke={BLUE} strokeWidth="1.5" />
       <circle cx="40" cy="35" r="6" fill={BLUE} opacity="0.15" stroke={BLUE} strokeWidth="1.5" />
@@ -126,59 +124,71 @@ const stickerSVGs: Record<string, React.ReactNode> = {
   ),
 };
 
-// Each section gets 4 UNIQUE stickers (2 left, 2 right) — no repeats
-// Hero ~0-800, Experience ~800-1800, Education ~1800-2600
-// Projects ~2600-3600, Roles ~3600-4600, Contact ~4600-5600
-const placements = [
-  // ─── Hero Section ───
-  { type: "atom",      x: "3%",  y: 120,  size: 64, speed: 0.03, rot: 10 },
-  { type: "cpu",       x: "91%", y: 180,  size: 58, speed: 0.02, rot: -6 },
-  { type: "infinity",  x: "4%",  y: 500,  size: 56, speed: 0.03, rot: -4 },
-  { type: "binary",    x: "90%", y: 550,  size: 52, speed: 0.02, rot: 8 },
-
-  // ─── Experience Section ───
-  { type: "neuralnet", x: "3%",  y: 900,  size: 62, speed: 0.03, rot: 12 },
-  { type: "rocket",    x: "92%", y: 950,  size: 60, speed: 0.02, rot: -8 },
-  { type: "code",      x: "5%",  y: 1350, size: 54, speed: 0.02, rot: -10 },
-  { type: "sigma",     x: "89%", y: 1400, size: 52, speed: 0.03, rot: 5 },
-
-  // ─── Education Section ───
-  { type: "integral",  x: "4%",  y: 1900, size: 52, speed: 0.03, rot: -12 },
-  { type: "graph",     x: "91%", y: 1950, size: 58, speed: 0.02, rot: 7 },
-  { type: "matrix",    x: "3%",  y: 2300, size: 54, speed: 0.02, rot: -6 },
-  { type: "cloud",     x: "90%", y: 2350, size: 60, speed: 0.03, rot: 10 },
-
-  // ─── Projects Section (dark bg — stickers won't show, skip) ───
-
-  // ─── Roles Section ───
-  { type: "circuit",   x: "4%",  y: 3700, size: 60, speed: 0.02, rot: 7 },
-  { type: "database",  x: "92%", y: 3750, size: 58, speed: 0.03, rot: -7 },
-
-  // ─── Contact Section (dark bg) ───
-  // No stickers on dark sections — they clash
+// Sticker order — each group of 4 is for one section
+const stickerOrder = [
+  "atom", "cpu", "infinity", "binary",           // Hero
+  "neuralnet", "rocket", "code", "sigma",         // Experience
+  "integral", "graph", "matrix", "cloud",         // Education
+  // Projects & Contact are dark — no stickers
+  "circuit", "database",                          // Roles (just 2)
 ];
 
 export default function FloatingStickers() {
+  const [pageHeight, setPageHeight] = useState(0);
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
+    const measure = () => setPageHeight(document.body.scrollHeight);
     const onScroll = () => setScrollY(window.scrollY);
+
+    measure();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", measure);
+
+    // Re-measure after content loads
+    const timer = setTimeout(measure, 1000);
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", measure);
+      clearTimeout(timer);
+    };
   }, []);
 
+  // Only show on light sections (roughly top 65% of page)
+  const lightZoneHeight = pageHeight * 0.65;
+
+  // Build placements dynamically based on actual page height
+  const placements = stickerOrder.map((type, i) => {
+    const isLeft = i % 2 === 0;
+    const totalStickers = stickerOrder.length;
+    const yPos = (lightZoneHeight / totalStickers) * i + 100;
+
+    return {
+      type,
+      x: isLeft ? `${3 + (i % 3)}%` : `${88 + (i % 3)}%`,
+      y: yPos,
+      size: 52 + (i % 4) * 4,
+      speed: 0.02 + (i % 3) * 0.01,
+      rot: ((i * 7) % 20) - 10,
+    };
+  });
+
   return (
-    <div className="absolute top-0 left-0 w-full overflow-visible pointer-events-none z-40 hidden sm:block" style={{ height: 0 }}>
+    <div
+      className="absolute top-0 left-0 w-full pointer-events-none z-40 hidden sm:block"
+      style={{ height: lightZoneHeight }}
+    >
       {placements.map((s, i) => (
         <div
           key={i}
-          className="absolute opacity-75"
+          className="absolute opacity-60"
           style={{
             left: s.x,
             top: s.y,
             width: s.size,
             height: s.size,
-            transform: `translateY(${scrollY * -s.speed * 5}px) rotate(${s.rot + scrollY * 0.01}deg)`,
+            transform: `translateY(${scrollY * -s.speed * 3}px) rotate(${s.rot + scrollY * 0.008}deg)`,
             willChange: "transform",
           }}
         >
