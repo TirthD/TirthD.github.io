@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Tirth Dave — AI Engineer · Data Engineer · Cloud",
+  title: "Tirth Dave — AI Researcher · Data Engineer · Cloud",
   description:
     "Portfolio of Tirth Dave — MS in AI at Northeastern University. Building intelligent systems at the intersection of AI, data engineering, and cloud computing.",
   keywords: [
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Tirth Dave" }],
   openGraph: {
-    title: "Tirth Dave — AI Engineer · Data Engineer · Cloud",
+    title: "Tirth Dave — AI Researcher · Data Engineer · Cloud",
     description: "Building intelligent systems at the intersection of AI, data engineering, and cloud.",
     url: "https://tirthd.github.io",
     siteName: "Tirth Dave",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tirth Dave — AI Engineer · Data Engineer · Cloud",
+    title: "Tirth Dave — AI Researcher · Data Engineer · Cloud",
     description: "Building intelligent systems at the intersection of AI, data engineering, and cloud.",
   },
   robots: {
