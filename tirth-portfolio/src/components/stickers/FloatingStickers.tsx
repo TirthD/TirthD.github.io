@@ -127,22 +127,31 @@ const stickerSVGs: Record<string, React.ReactNode> = {
 };
 
 // 14 stickers placed alternating left/right across the FULL page
-// Each section is roughly 600-800px tall, total page ~6000-8000px
+// Tighter spacing so multiple stickers are always visible
 const placements = [
-  { type: "atom",      x: "3%",  y: 150,  size: 64, speed: 0.05, rot: 10 },
-  { type: "cpu",       x: "90%", y: 500,  size: 58, speed: 0.04, rot: -6 },
-  { type: "neuralnet", x: "5%",  y: 900,  size: 62, speed: 0.06, rot: 12 },
-  { type: "binary",    x: "88%", y: 1300, size: 56, speed: 0.04, rot: -8 },
-  { type: "code",      x: "4%",  y: 1700, size: 54, speed: 0.05, rot: -10 },
-  { type: "sigma",     x: "92%", y: 2100, size: 52, speed: 0.06, rot: 5 },
-  { type: "database",  x: "3%",  y: 2500, size: 58, speed: 0.04, rot: -7 },
-  { type: "rocket",    x: "91%", y: 2900, size: 60, speed: 0.05, rot: 15 },
-  { type: "infinity",  x: "5%",  y: 3300, size: 56, speed: 0.04, rot: -4 },
-  { type: "circuit",   x: "89%", y: 3700, size: 60, speed: 0.06, rot: 7 },
-  { type: "integral",  x: "4%",  y: 4100, size: 52, speed: 0.05, rot: -12 },
-  { type: "graph",     x: "92%", y: 4500, size: 58, speed: 0.04, rot: 8 },
-  { type: "matrix",    x: "3%",  y: 4900, size: 54, speed: 0.06, rot: -6 },
-  { type: "cloud",     x: "90%", y: 5300, size: 60, speed: 0.04, rot: 10 },
+  { type: "atom",      x: "3%",  y: 150,  size: 64, speed: 0.03, rot: 10 },
+  { type: "cpu",       x: "90%", y: 350,  size: 58, speed: 0.02, rot: -6 },
+  { type: "neuralnet", x: "5%",  y: 600,  size: 62, speed: 0.03, rot: 12 },
+  { type: "binary",    x: "88%", y: 850,  size: 56, speed: 0.02, rot: -8 },
+  { type: "code",      x: "4%",  y: 1100, size: 54, speed: 0.03, rot: -10 },
+  { type: "sigma",     x: "92%", y: 1350, size: 52, speed: 0.02, rot: 5 },
+  { type: "database",  x: "3%",  y: 1600, size: 58, speed: 0.03, rot: -7 },
+  { type: "rocket",    x: "91%", y: 1850, size: 60, speed: 0.02, rot: 15 },
+  { type: "infinity",  x: "5%",  y: 2100, size: 56, speed: 0.03, rot: -4 },
+  { type: "circuit",   x: "89%", y: 2350, size: 60, speed: 0.02, rot: 7 },
+  { type: "integral",  x: "4%",  y: 2600, size: 52, speed: 0.03, rot: -12 },
+  { type: "graph",     x: "92%", y: 2850, size: 58, speed: 0.02, rot: 8 },
+  { type: "matrix",    x: "3%",  y: 3100, size: 54, speed: 0.03, rot: -6 },
+  { type: "cloud",     x: "90%", y: 3350, size: 60, speed: 0.02, rot: 10 },
+  // Repeat cycle for longer pages
+  { type: "atom",      x: "5%",  y: 3600, size: 58, speed: 0.03, rot: -8 },
+  { type: "rocket",    x: "89%", y: 3850, size: 56, speed: 0.02, rot: 12 },
+  { type: "neuralnet", x: "4%",  y: 4100, size: 62, speed: 0.03, rot: -5 },
+  { type: "sigma",     x: "91%", y: 4350, size: 54, speed: 0.02, rot: 9 },
+  { type: "cpu",       x: "3%",  y: 4600, size: 60, speed: 0.03, rot: -10 },
+  { type: "binary",    x: "90%", y: 4850, size: 56, speed: 0.02, rot: 6 },
+  { type: "graph",     x: "5%",  y: 5100, size: 58, speed: 0.03, rot: -7 },
+  { type: "infinity",  x: "92%", y: 5350, size: 54, speed: 0.02, rot: 11 },
 ];
 
 export default function FloatingStickers() {
