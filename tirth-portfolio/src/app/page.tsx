@@ -13,7 +13,7 @@ export default function Home() {
     <>
       <Navbar />
       <FloatingStickers />
-      <main className="relative z-[1]">
+      <main className="relative">
         <Hero />
         <Experience />
         <Education />
