@@ -52,7 +52,7 @@ export default function Projects() {
   const pubInView = useInView(pubRef, { once: true, margin: "-60px" });
 
   return (
-    <section id="projects" className="py-20 sm:py-28 lg:py-36 bg-[#1d1d1f]">
+    <section id="projects" className="py-20 sm:py-28 lg:py-36 bg-[#000000]">
       <div className="max-w-5xl mx-auto px-5 sm:px-8">
         {/* Header */}
         <motion.div
