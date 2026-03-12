@@ -41,7 +41,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-xs sm:text-sm tracking-[0.2em] uppercase text-[#0071E3] mb-5 sm:mb-6"
         >
-          AI Engineer &middot; Data Engineer &middot; Cloud Enthusiast
+          AI Research &middot; Data Engineer &middot; Cloud Enthusiast
         </motion.p>
 
         {/* Name — single line */}
