@@ -211,17 +211,16 @@ const stickerSVGs: Record<string, React.ReactNode> = {
   ),
 };
 
-// 24 unique stickers — 4 per light section, none on dark sections
+// 16 unique stickers — nicely spaced, no repeats
 const stickerOrder = [
-  "atom", "cpu", "infinity", "binary",             // Hero
-  "neuralnet", "rocket", "code", "sigma",           // Experience
-  "integral", "graph", "matrix", "cloud",           // Education
-  // Projects section is dark — skip
-  "circuit", "database", "dna", "terminal",         // Roles
-  // Contact section is dark — skip
-  // Extra stickers fill gaps
-  "pi", "lambda", "flask", "fractal",
-  "curlybraces", "sinewave", "magnifier", "lock",
+  "atom", "cpu",                                    // Hero
+  "neuralnet", "binary",                            // Hero → Experience
+  "rocket", "code",                                 // Experience
+  "sigma", "terminal",                              // Experience → Education
+  "integral", "graph",                              // Education
+  "matrix", "cloud",                                // Education → Projects
+  "dna", "flask",                                   // Projects (edges)
+  "circuit", "lambda",                              // Roles
 ];
 
 export default function FloatingStickers() {
@@ -270,7 +269,7 @@ export default function FloatingStickers() {
       {placements.map((s, i) => (
         <div
           key={i}
-          className="absolute opacity-75"
+          className="absolute opacity-60"
           style={{
             left: s.x,
             top: s.y,
