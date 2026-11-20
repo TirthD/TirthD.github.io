@@ -1,10 +1,7 @@
-/*
- * Umber on orange is 4.96:1 with nothing on top; the vignette darkens the
- * edges where the label and footer sit and drops it below 4.5:1. Ink keeps
- * the meta text at AA here. (Two classes so this beats .on-orange.)
- */
+/* Footer sits inside the section; keep only a little room beneath it.
+   Two classes so this reliably beats Section's padding-block. */
 .contact:global(.on-orange) {
-  --meta: var(--ink);
+  padding-bottom: 56px;
 }
 
 /* Bookend heading: larger than section headings, smaller than the name */
@@ -61,6 +58,10 @@
 }
 
 @media (max-width: 720px) {
+  .contact:global(.on-orange) {
+    padding-bottom: 40px;
+  }
+
   .line {
     margin-top: 24px;
   }

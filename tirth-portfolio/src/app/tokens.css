@@ -9,8 +9,7 @@
   --orange: #e07a45; /* Now + Contact backgrounds */
   --cream: #f2eadb;  /* Work background, light blooms, text on dark buttons */
   --ink: #1f1b16;    /* all primary text, primary buttons */
-  --slate: #2e3b44;  /* secondary text and labels on sky and cream */
-  --umber: #3a2214;  /* secondary text and labels on orange */
+  --slate: #2e3b44;  /* secondary text and labels on sky and cream (ink on orange) */
   --accent: #d45f2a; /* dots, full stops, link underlines — sky/cream only, never body text */
   --panel: #c9dae5;  /* image placeholder panels */
   --rule: rgba(31, 27, 22, 0.25); /* divider lines */
@@ -54,7 +53,7 @@
 
 /* Orange sections: orange accents vanish on orange, so swap them */
 .on-orange {
-  --meta: var(--umber);
+  --meta: var(--ink); /* umber failed AA once vignette + grain darken the orange */
   --dot: var(--ink);
   --stop: var(--cream);
 }

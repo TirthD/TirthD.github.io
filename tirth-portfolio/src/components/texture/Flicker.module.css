@@ -1,0 +1,28 @@
+/*
+ * Opacity-only animation, so it stays on the compositor. steps(1) holds each
+ * keyframe value and jumps instantly: blinks, not fades. Resting opacity is
+ * 0, so with reduced motion (animation off) it simply isn't there.
+ */
+.flicker {
+  position: fixed;
+  inset: 0;
+  z-index: 61;
+  pointer-events: none;
+  background: var(--cream);
+  opacity: 0;
+  will-change: opacity;
+  animation: flicker 4s steps(1, end) infinite;
+}
+
+@keyframes flicker {
+  0% { opacity: 0; }
+  11% { opacity: 0.04; }
+  13% { opacity: 0; }
+  38% { opacity: 0.06; }
+  39.5% { opacity: 0; }
+  41% { opacity: 0.03; }
+  43% { opacity: 0; }
+  72% { opacity: 0.05; }
+  74% { opacity: 0; }
+  100% { opacity: 0; }
+}

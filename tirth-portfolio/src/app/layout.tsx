@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces } from "next/font/google";
+import Flicker from "@/components/texture/Flicker";
+import Grain from "@/components/texture/Grain";
 import { site } from "@/content";
 import "./globals.css";
 
@@ -49,7 +51,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={fraunces.variable}>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Grain />
+        <Flicker />
+      </body>
     </html>
   );
 }

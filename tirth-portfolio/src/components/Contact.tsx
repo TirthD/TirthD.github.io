@@ -55,8 +55,9 @@ export default function Contact() {
         ))}
       </div>
 
-      {/* Inside the section so the vignette and blooms run under it seamlessly */}
-      <footer className={`t-meta ${styles.footer}`}>
+      {/* Inside the section so the vignette and blooms run under it seamlessly;
+          role="contentinfo" so it's still announced as the page footer */}
+      <footer role="contentinfo" className={`t-meta ${styles.footer}`}>
         <p>{contact.footer.left}</p>
         <p>{contact.footer.right}</p>
       </footer>
