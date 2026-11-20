@@ -1,10 +1,13 @@
 import Hero from "@/components/Hero";
 import Nav from "@/components/Nav";
+import Now from "@/components/Now";
 import Section, { SectionLabel } from "@/components/Section";
 import { nav } from "@/content";
 
-// Layout shell. Each placeholder is replaced by its real section component
-// in the following steps.
+// Placeholders for sections not built yet; replaced in the following steps.
+const pending = nav.filter((item) => item.id !== "now");
+const tones = { work: "cream", path: "sky", contact: "orange" } as const;
+
 export default function Home() {
   return (
     <>
@@ -14,12 +17,13 @@ export default function Home() {
       <Nav />
       <main id="main">
         <Hero />
+        <Now />
 
-        {nav.map((item, i) => (
+        {pending.map((item) => (
           <Section
             key={item.id}
             id={item.id}
-            tone={(["orange", "cream", "sky", "orange"] as const)[i]}
+            tone={tones[item.id as keyof typeof tones]}
             tall={item.id === "contact"}
             labelledBy={`${item.id}-title`}
           >

@@ -44,9 +44,11 @@
   left: -18%;
 }
 
+/* Pulled in far enough that its warm core sits inside the vignette's
+   clear center (< 55% radius) and stays orange instead of greying. */
 .hero .orange {
-  right: -22%;
-  bottom: -28%;
+  right: -6%;
+  bottom: -12%;
 }
 
 /* Contact: mirrored. */

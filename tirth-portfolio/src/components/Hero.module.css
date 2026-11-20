@@ -8,7 +8,7 @@
 /* Intro line: item-title scale so it reads as a lede, kept to a short measure */
 .line {
   margin-top: 40px;
-  max-width: 30ch;
+  max-width: 25em; /* ≈ 45 characters per line: three lines on desktop */
   font-size: var(--fs-title);
   line-height: 1.25;
   font-variation-settings: "opsz" 48, "SOFT" 100;

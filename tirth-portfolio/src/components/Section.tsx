@@ -42,6 +42,17 @@ export default function Section({
   );
 }
 
+/** Renders a trailing "." as the section-colored full stop. */
+export function WithStop({ text }: { text: string }) {
+  if (!text.endsWith(".")) return <>{text}</>;
+  return (
+    <>
+      {text.slice(0, -1)}
+      <span className="stop">.</span>
+    </>
+  );
+}
+
 export function SectionLabel({ num, name }: { num: string; name: string }) {
   return (
     <p className={`t-meta ${styles.label}`}>
