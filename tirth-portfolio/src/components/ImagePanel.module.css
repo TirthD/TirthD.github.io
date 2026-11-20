@@ -1,0 +1,38 @@
+.panel {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-panel);
+  background: var(--panel);
+  /* soft cream glow: lifts off the cream page and lights the panel's edges */
+  box-shadow:
+    0 18px 50px -24px rgba(31, 27, 22, 0.18),
+    inset 0 0 70px rgba(242, 234, 219, 0.6);
+}
+
+/* faint orange glow from one corner, on top of image or placeholder */
+.panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 100% 100%,
+    rgba(224, 122, 69, 0.22),
+    rgba(224, 122, 69, 0) 55%
+  );
+}
+
+.image {
+  object-fit: cover;
+}
+
+.placeholder {
+  position: relative;
+  z-index: 1;
+  max-width: 28ch;
+  padding: 24px;
+  text-align: center;
+}

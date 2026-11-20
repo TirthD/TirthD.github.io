@@ -1,0 +1,118 @@
+.heading {
+  max-width: 15em;
+}
+
+.list {
+  margin-top: 72px;
+}
+
+/* Same layout for every project: text left, 4:3 panel right */
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+  gap: 40px 72px;
+  align-items: start;
+  padding-block: 64px;
+  border-top: 1px solid var(--rule);
+}
+
+.row:last-child {
+  padding-bottom: 0;
+}
+
+.text {
+  container-type: inline-size;
+}
+
+.title {
+  margin-top: 8px;
+}
+
+.body {
+  margin-top: 20px;
+}
+
+/*
+ * Stats: one column per stat, two subgrid rows (value, label). Values sit
+ * on a shared bottom line and labels on a shared top line, so a value that
+ * wraps ("CNN + Transformer") stays aligned with short ones ("E-DAIC").
+ */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr));
+  grid-template-rows: auto auto;
+  gap: 8px 32px;
+  margin-top: 36px;
+}
+
+.stat {
+  display: grid;
+  grid-row: span 2;
+  grid-template-rows: subgrid;
+}
+
+.statValue {
+  grid-row: 1;
+  align-self: end;
+  margin: 0;
+  font-size: var(--fs-stat);
+  line-height: 1.1;
+  font-weight: 400;
+  font-variation-settings: "opsz" 72, "SOFT" 100;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+.statLabel {
+  grid-row: 2;
+}
+
+.stack {
+  margin-top: 32px;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 28px;
+  margin-top: 20px;
+}
+
+.links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  font-weight: 500;
+}
+
+/* Narrow text column: stats stack one per row, value above label */
+@container (max-width: 460px) {
+  .stats {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    gap: 20px;
+  }
+
+  .stat {
+    grid-row: auto;
+    grid-template-rows: auto auto;
+    gap: 4px;
+  }
+}
+
+@media (max-width: 900px) {
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .list {
+    margin-top: 48px;
+  }
+
+  .row {
+    padding-block: 48px;
+  }
+}

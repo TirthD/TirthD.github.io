@@ -1,5 +1,6 @@
 import { nav, now } from "@/content";
-import Section, { SectionLabel, WithStop } from "./Section";
+import KeepHyphens from "./KeepHyphens";
+import Section, { SectionLabel } from "./Section";
 import styles from "./Now.module.css";
 
 const item = nav.find((n) => n.id === "now")!;
@@ -10,11 +11,13 @@ export default function Now() {
       <SectionLabel num={item.num} name={item.label} />
       <div className={styles.grid}>
         <h2 id="now-title" className={`t-heading ${styles.heading}`}>
-          <WithStop text={now.heading} />
+          {now.heading}
         </h2>
 
         <div className={styles.details}>
-          <p className="t-body">{now.body}</p>
+          <p className="t-body">
+            <KeepHyphens text={now.body} />
+          </p>
 
           <ul className={styles.timeline}>
             {now.timeline.map((t) => (
