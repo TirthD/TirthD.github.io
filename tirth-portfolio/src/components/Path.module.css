@@ -1,0 +1,99 @@
+.heading {
+  max-width: 15em;
+}
+
+.subline {
+  margin-top: 16px;
+  color: var(--slate);
+}
+
+.list {
+  margin-top: 64px;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* Year | place + role | note */
+.row {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 5fr) minmax(0, 6fr);
+  gap: 12px 48px;
+  align-items: baseline;
+  padding-block: 32px;
+  border-top: 1px solid var(--rule);
+}
+
+.year {
+  white-space: nowrap; /* "2024–25" never splits */
+  font-variant-numeric: tabular-nums;
+}
+
+.place {
+  font-size: 26px;
+  line-height: 1.2;
+  font-weight: 400;
+  font-variation-settings: "opsz" 48, "SOFT" 100;
+  text-wrap: balance;
+}
+
+.role {
+  margin-top: 6px;
+}
+
+.note {
+  max-width: 44ch;
+}
+
+/* Inline in the sentence; padding + negative margin grows the tap area to
+   44px without changing the line spacing. */
+.noteLink {
+  display: inline-block;
+  padding-block: 10px;
+  margin-block: -10px;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 40px;
+  margin-top: 48px;
+}
+
+.footLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  font-weight: 500;
+}
+
+/* Mobile: year stays left; note stacks under place + role */
+@media (max-width: 720px) {
+  .list {
+    margin-top: 48px;
+  }
+
+  .row {
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 14px 20px;
+    padding-block: 28px;
+  }
+
+  .note {
+    grid-column: 2;
+  }
+}
+
+/* Small phones: year moves above the place so place and note get the full
+   width (otherwise "K.J. Somaiya College of Engineering" breaks into 3 lines) */
+@media (max-width: 480px) {
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .note {
+    grid-column: 1;
+    margin-top: 4px;
+  }
+}

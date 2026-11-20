@@ -86,18 +86,27 @@
   font-weight: 500;
 }
 
-/* Narrow text column: stats stack one per row, value above label */
+/*
+ * Narrow text column (phones): two columns, third stat wraps under the
+ * first. Each stat still spans a value row + label row via subgrid, so
+ * values and labels stay aligned across each pair. Columns size to their
+ * content so "Transformer" never has to break mid-word.
+ */
 @container (max-width: 460px) {
   .stats {
-    grid-template-columns: minmax(0, 1fr);
+    /* equal halves, but never narrower than the longest word */
+    grid-template-columns: repeat(2, minmax(min-content, 1fr));
     grid-template-rows: none;
-    gap: 20px;
+    grid-auto-rows: auto;
+    gap: 6px 24px;
   }
 
-  .stat {
-    grid-row: auto;
-    grid-template-rows: auto auto;
-    gap: 4px;
+  .statValue {
+    font-size: 30px;
+  }
+
+  .statLabel {
+    padding-bottom: 18px; /* space between the first and second pair */
   }
 }
 

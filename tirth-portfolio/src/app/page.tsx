@@ -1,13 +1,14 @@
 import Hero from "@/components/Hero";
 import Nav from "@/components/Nav";
 import Now from "@/components/Now";
+import Path from "@/components/Path";
 import Work from "@/components/Work";
 import Section, { SectionLabel } from "@/components/Section";
 import { nav } from "@/content";
 
 // Placeholders for sections not built yet; replaced in the following steps.
-const pending = nav.filter((item) => item.id === "path" || item.id === "contact");
-const tones = { path: "sky", contact: "orange" } as const;
+const pending = nav.filter((item) => item.id === "contact");
+const tones = { contact: "orange" } as const;
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <Hero />
         <Now />
         <Work />
+        <Path />
 
         {pending.map((item) => (
           <Section

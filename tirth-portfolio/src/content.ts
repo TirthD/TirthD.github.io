@@ -112,6 +112,85 @@ export const work: { heading: string; projects: Project[] } = {
   ],
 };
 
+export type TextLink = {
+  label: string;
+  href: string;
+  /** Opens in a new tab with rel="noopener noreferrer" */
+  external?: boolean;
+};
+
+export type PathRow = {
+  year: string;
+  place: string;
+  role: string;
+  note: string;
+  /** Optional link shown right after the note */
+  link?: TextLink;
+};
+
+const ieeeDoi = "https://doi.org/10.1109/CSCITA55725.2023.10104985";
+
+export const path: {
+  heading: string;
+  subline: string;
+  rows: PathRow[];
+  links: TextLink[];
+} = {
+  heading: "From seeing, to scale, to reasoning.",
+  subline: "How I got here, in order.",
+  // Oldest first
+  rows: [
+    {
+      year: "2022",
+      place: "K.J. Somaiya College of Engineering",
+      role: "Research Intern",
+      note: "Compared YOLO, Faster R-CNN and CornerNet for finding cancerous lesions in dental X-rays. My start in computer vision.",
+    },
+    {
+      year: "2023",
+      place: "IEEE CSCITA",
+      role: "Published paper",
+      note: "Deep-learning recognition of Marathi sentences from Devanagari characters.",
+      link: { label: "Read the paper ↗", href: ieeeDoi, external: true },
+    },
+    {
+      year: "2024",
+      place: "Somaiya University",
+      role: "B.Tech, Electronics & Telecom",
+      note: "Minor in Computer Engineering. Won J.P. Morgan's Code for Good hackathon along the way.",
+    },
+    {
+      year: "2024–25",
+      place: "LTIMindtree",
+      role: "Data Engineer, Snowflake",
+      note: "Built the company's FinOps framework for Snowflake across storage, compute and warehouses, with monitoring delivered through Streamlit.",
+    },
+    {
+      year: "2025",
+      place: "Northeastern University",
+      role: "MS in Artificial Intelligence",
+      note: "Khoury College of Computer Sciences. 4.0 GPA so far.",
+    },
+    {
+      year: "2026",
+      place: "Northeastern University",
+      role: "Teaching Assistant, CS 5100",
+      note: "Office hours, grading and walkthrough videos for Foundations of AI.",
+    },
+    {
+      year: "2026",
+      place: "Sensata Technologies",
+      role: "AI/ML Intern, then Engineer",
+      note: "Where the vision, data and AI threads come together.",
+      link: { label: "Now ↑", href: "#now" },
+    },
+  ],
+  links: [
+    { label: "Download the full résumé (PDF)", href: "/Tirth_Dave_Resume.pdf" },
+    { label: "IEEE paper", href: ieeeDoi, external: true },
+  ],
+};
+
 export const nav: NavItem[] = [
   { id: "now", num: "01", label: "Now" },
   { id: "work", num: "02", label: "Work" },

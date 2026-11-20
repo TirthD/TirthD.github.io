@@ -32,7 +32,9 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
           {project.stats.map((s) => (
             <div key={s.label} className={styles.stat}>
               <dt className={`t-meta ${styles.statLabel}`}>{s.label}</dt>
-              <dd className={styles.statValue}>{s.value}</dd>
+              <dd className={styles.statValue}>
+                <KeepHyphens text={s.value} />
+              </dd>
             </div>
           ))}
         </dl>
