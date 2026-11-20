@@ -59,7 +59,7 @@ export default function Nav() {
         <a href="#top" className={styles.brand}>
           {site.name}
         </a>
-        <nav aria-label="Primary" className={styles.primary}>
+        <nav aria-label="Primary">
           <ol className={styles.links}>
             {nav.map((item) => {
               const isActive = active === item.id;
@@ -71,8 +71,7 @@ export default function Nav() {
                     data-active={isActive || undefined}
                     aria-current={isActive ? "true" : undefined}
                   >
-                    <span className={styles.num}>{item.num}</span>
-                    <span className={styles.word}>{item.label}</span>
+                    {item.label}
                   </a>
                 </li>
               );

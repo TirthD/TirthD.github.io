@@ -24,3 +24,10 @@ npm run lint    # ESLint
 - **Copy:** all text, links and project data live in `src/content.ts`.
 - **Colors, type scale, spacing:** `src/app/tokens.css`.
 - **Font:** Fraunces, loaded via `next/font` in `src/app/layout.tsx`.
+- **Project screenshots:** put them in `public/images/` and set `image: { src: "/images/…", alt: "…" }` on the project in `src/content.ts`.
+- **Résumé:** `public/Tirth_Dave_Resume.pdf`.
+
+## Scripts
+
+- `node scripts/make-grain.mjs` regenerates `public/grain.png` (the film-grain tile). Tuning constants are at the top of the file.
+- `node scripts/fetch-og-fonts.mjs` re-downloads the static Fraunces files used by the Open Graph image (`src/app/og-fonts/`).

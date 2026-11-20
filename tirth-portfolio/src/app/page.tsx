@@ -1,4 +1,5 @@
 import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Nav from "@/components/Nav";
 import Now from "@/components/Now";
@@ -19,6 +20,7 @@ export default function Home() {
         <Path />
         <Contact />
       </main>
+      <Footer />
     </>
   );
 }

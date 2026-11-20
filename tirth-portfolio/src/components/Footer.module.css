@@ -1,0 +1,28 @@
+/*
+ * Fixed height (--footer-h) so Contact can reserve exactly this much space.
+ * Line height is in px and the layout never wraps unpredictably: one row
+ * above 480px, two stacked lines at or below it.
+ */
+.footer {
+  position: relative;
+  z-index: 1; /* above the Contact section's backdrop layers */
+  height: var(--footer-h);
+  margin-top: calc(-1 * var(--footer-h));
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--rule);
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .inner {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

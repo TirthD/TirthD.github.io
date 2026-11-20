@@ -1,7 +1,11 @@
-/* Footer sits inside the section; keep only a little room beneath it.
-   Two classes so this reliably beats Section's padding-block. */
+/*
+ * The page footer (components/Footer) sits after <main> and is pulled up over
+ * this padding, so the vignette and blooms run under it without a seam.
+ * Padding = gap above the footer rule + the footer's fixed height.
+ * Two classes so this reliably beats Section's padding-block.
+ */
 .contact:global(.on-orange) {
-  padding-bottom: 56px;
+  padding-bottom: calc(var(--footer-gap) + var(--footer-h));
 }
 
 /* Bookend heading: larger than section headings, smaller than the name */
@@ -47,21 +51,8 @@
   margin-top: 48px;
 }
 
-.footer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 8px 24px;
-  margin-top: 120px;
-  padding-top: 24px;
-  border-top: 1px solid var(--rule);
-}
 
 @media (max-width: 720px) {
-  .contact:global(.on-orange) {
-    padding-bottom: 40px;
-  }
-
   .line {
     margin-top: 24px;
   }
@@ -73,9 +64,5 @@
   .actions {
     gap: 12px;
     margin-top: 36px;
-  }
-
-  .footer {
-    margin-top: 80px;
   }
 }

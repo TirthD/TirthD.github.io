@@ -12,44 +12,38 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px 32px;
+  gap: 0 24px;
   min-height: calc(var(--nav-h) - 1px); /* + 1px border = --nav-h */
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
+  flex: none;
   min-height: var(--tap);
-  font-size: 21px;
+  font-size: 20px;
   font-weight: 500;
   font-variation-settings: "opsz" 48, "SOFT" 100;
   letter-spacing: -0.01em;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .links {
   display: flex;
-  gap: 32px;
+  gap: 24px;
 }
 
+/* Every link is at least a 44×44px tap target, even short words like "Now" */
 .link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  min-width: var(--tap);
   min-height: var(--tap);
   font-size: var(--fs-meta);
-  text-decoration: none;
-}
-
-.num {
-  color: var(--slate);
   font-weight: 500;
-  font-variant-numeric: tabular-nums;
-}
-
-.word {
   color: var(--ink);
-  font-weight: 500;
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 6px;
@@ -57,31 +51,25 @@
   transition: text-decoration-color 0.2s ease;
 }
 
-.link:hover .word {
+.link:hover {
   text-decoration-color: var(--rule);
 }
 
-.link[data-active] .word {
+.link[data-active] {
   text-decoration-color: var(--accent);
 }
 
-/* Mobile: links wrap onto their own row below the name, no hamburger */
+/* Mobile: name and links stay on one row; the 44px targets sit edge to edge */
 @media (max-width: 720px) {
   .inner {
-    flex-wrap: wrap;
-    padding-block: 8px 4px;
+    gap: 0 8px;
   }
 
   .brand {
-    font-size: 20px;
-  }
-
-  .primary {
-    width: 100%;
+    font-size: 18px;
   }
 
   .links {
-    justify-content: space-between;
-    gap: 8px;
+    gap: 2px;
   }
 }

@@ -36,10 +36,15 @@
   --measure: 68ch;
   --section-pad: 120px;
   --section-pad-hero: 140px;
-  --nav-h: 72px; /* measured, includes 1px border */
+  --nav-h: 56px; /* measured, includes 1px border */
   --radius-panel: 6px;
   --tap: 44px;
   --btn-h: 52px;
+
+  /* Footer: fixed height so Contact can reserve exactly this space.
+     1px rule + 24px gap + 22px line + 72px below */
+  --footer-gap: 120px; /* space above the footer rule */
+  --footer-h: 119px;
 }
 
 @media (max-width: 720px) {
@@ -47,7 +52,15 @@
     --gutter: 24px;
     --section-pad: 80px;
     --section-pad-hero: 112px;
-    --nav-h: 109px; /* measured: name row + wrapped link row + border */
+    --nav-h: 56px; /* measured: one row (name + links) + border */
+    --footer-gap: 80px;
+    --footer-h: 87px; /* 1 + 24 + 22 + 40 below */
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --footer-h: 117px; /* stacked: 1 + 24 + 22 + 8 + 22 + 40 below */
   }
 }
 
