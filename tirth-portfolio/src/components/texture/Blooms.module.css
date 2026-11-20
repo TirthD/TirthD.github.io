@@ -1,0 +1,79 @@
+.blooms {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bloom {
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  will-change: transform;
+  animation: drift 18s ease-in-out infinite alternate;
+}
+
+/* Gradients fade to transparent well before the edge, so they read as
+   blurred light without paying for a filter: blur() on a large layer. */
+.cream {
+  width: clamp(420px, 70vw, 980px);
+  background: radial-gradient(
+    closest-side,
+    rgba(242, 234, 219, 0.85),
+    rgba(242, 234, 219, 0.45) 45%,
+    rgba(242, 234, 219, 0) 100%
+  );
+}
+
+.orange {
+  width: clamp(360px, 55vw, 820px);
+  background: radial-gradient(
+    closest-side,
+    rgba(224, 122, 69, 0.38),
+    rgba(224, 122, 69, 0.16) 50%,
+    rgba(224, 122, 69, 0) 100%
+  );
+  animation-name: drift-alt;
+  animation-delay: -9s;
+}
+
+/* Hero: cream light from the top left behind the name,
+   orange glow coming in from the right, away from the meta text. */
+.hero .cream {
+  top: -30%;
+  left: -18%;
+}
+
+.hero .orange {
+  right: -22%;
+  bottom: -28%;
+}
+
+/* Contact: mirrored. */
+.contact .cream {
+  top: -25%;
+  right: -20%;
+}
+
+.contact .orange {
+  left: -24%;
+  bottom: -35%;
+}
+
+@keyframes drift {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(4%, 3%, 0) scale(1.06);
+  }
+}
+
+@keyframes drift-alt {
+  from {
+    transform: translate3d(0, 0, 0) scale(1.04);
+  }
+  to {
+    transform: translate3d(-4%, -3%, 0) scale(1);
+  }
+}

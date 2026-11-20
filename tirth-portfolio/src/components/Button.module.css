@@ -1,0 +1,44 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: var(--btn-h);
+  padding: 0 28px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  font-size: 17px;
+  font-weight: 500;
+  font-variation-settings: "SOFT" 50;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.solid {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.solid:hover {
+  background: var(--slate);
+  border-color: var(--slate);
+}
+
+.outline {
+  background: transparent;
+  color: var(--ink);
+}
+
+.outline:hover {
+  background: rgba(31, 27, 22, 0.07);
+}
+
+/* Keeps two buttons side by side in a 312px column (360px screen) */
+@media (max-width: 720px) {
+  .button {
+    padding: 0 22px;
+    font-size: 16px;
+  }
+}

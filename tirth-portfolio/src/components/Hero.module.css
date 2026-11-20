@@ -1,0 +1,38 @@
+/* Fills the first screen under the nav, content centered vertically */
+.hero {
+  display: flex;
+  align-items: center;
+  min-height: calc(100svh - var(--nav-h));
+}
+
+/* Intro line: item-title scale so it reads as a lede, kept to a short measure */
+.line {
+  margin-top: 40px;
+  max-width: 30ch;
+  font-size: var(--fs-title);
+  line-height: 1.25;
+  font-variation-settings: "opsz" 48, "SOFT" 100;
+}
+
+.meta {
+  margin-top: 24px;
+  max-width: var(--measure);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  margin-top: 48px;
+}
+
+@media (max-width: 720px) {
+  .line {
+    margin-top: 28px;
+  }
+
+  .actions {
+    gap: 12px;
+    margin-top: 36px;
+  }
+}

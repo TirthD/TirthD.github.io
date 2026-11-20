@@ -1,6 +1,7 @@
+import Hero from "@/components/Hero";
 import Nav from "@/components/Nav";
 import Section, { SectionLabel } from "@/components/Section";
-import { nav, site } from "@/content";
+import { nav } from "@/content";
 
 // Layout shell. Each placeholder is replaced by its real section component
 // in the following steps.
@@ -12,12 +13,7 @@ export default function Home() {
       </a>
       <Nav />
       <main id="main">
-        <Section id="top" tone="sky" tall labelledBy="hero-title">
-          <h1 id="hero-title" className="t-name">
-            {site.name}
-            <span className="stop">.</span>
-          </h1>
-        </Section>
+        <Hero />
 
         {nav.map((item, i) => (
           <Section

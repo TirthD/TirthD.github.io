@@ -112,6 +112,13 @@ section[id] {
   color: var(--meta);
 }
 
+/* Soft light glow — hero name and contact heading only */
+.glow {
+  text-shadow:
+    0 0 28px rgba(242, 234, 219, 0.55),
+    0 0 2px rgba(212, 95, 42, 0.25);
+}
+
 /* Full stop after headings: accent on sky/cream, cream on orange */
 .stop {
   color: var(--stop);
