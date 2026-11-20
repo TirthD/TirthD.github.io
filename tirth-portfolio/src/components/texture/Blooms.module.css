@@ -51,15 +51,16 @@
   bottom: -12%;
 }
 
-/* Contact: mirrored. */
+/* Contact: mirrored, and pulled in like the hero's so neither bloom's core
+   sits in the vignette's dark band. */
 .contact .cream {
-  top: -25%;
-  right: -20%;
+  top: -14%;
+  right: -8%;
 }
 
 .contact .orange {
-  left: -24%;
-  bottom: -35%;
+  left: -8%;
+  bottom: -14%;
 }
 
 @keyframes drift {

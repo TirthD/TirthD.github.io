@@ -1,14 +1,9 @@
+import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
 import Nav from "@/components/Nav";
 import Now from "@/components/Now";
 import Path from "@/components/Path";
 import Work from "@/components/Work";
-import Section, { SectionLabel } from "@/components/Section";
-import { nav } from "@/content";
-
-// Placeholders for sections not built yet; replaced in the following steps.
-const pending = nav.filter((item) => item.id === "contact");
-const tones = { contact: "orange" } as const;
 
 export default function Home() {
   return (
@@ -22,23 +17,7 @@ export default function Home() {
         <Now />
         <Work />
         <Path />
-
-        {pending.map((item) => (
-          <Section
-            key={item.id}
-            id={item.id}
-            tone={tones[item.id as keyof typeof tones]}
-            tall={item.id === "contact"}
-            labelledBy={`${item.id}-title`}
-          >
-            <SectionLabel num={item.num} name={item.label} />
-            <h2 id={`${item.id}-title`} className="t-heading">
-              {item.label}
-              <span className="stop">.</span>
-            </h2>
-            <div style={{ height: "60vh" }} />
-          </Section>
-        ))}
+        <Contact />
       </main>
     </>
   );

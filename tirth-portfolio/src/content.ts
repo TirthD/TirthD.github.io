@@ -129,6 +129,7 @@ export type PathRow = {
 };
 
 const ieeeDoi = "https://doi.org/10.1109/CSCITA55725.2023.10104985";
+const resumeHref = "/Tirth_Dave_Resume.pdf";
 
 export const path: {
   heading: string;
@@ -182,13 +183,44 @@ export const path: {
       place: "Sensata Technologies",
       role: "AI/ML Intern, then Engineer",
       note: "Where the vision, data and AI threads come together.",
-      link: { label: "Now ↑", href: "#now" },
+      link: { label: "See what I'm doing now ↑", href: "#now" },
     },
   ],
-  links: [
-    { label: "Download the full résumé (PDF)", href: "/Tirth_Dave_Resume.pdf" },
-    { label: "IEEE paper", href: ieeeDoi, external: true },
+  links: [{ label: "Download the full résumé (PDF)", href: resumeHref }],
+};
+
+export type ContactButton = TextLink & { variant: "solid" | "outline" };
+
+export const contact: {
+  /** Bookend heading: the trailing "." renders in cream */
+  heading: string;
+  line: string;
+  email: string;
+  buttons: ContactButton[];
+  footer: { left: string; right: string };
+} = {
+  heading: "Say hello.",
+  line: "I'm open to AI/ML engineering roles and always happy to talk about agents, RAG, or data that won't behave.",
+  email: "Dave.tir@northeastern.edu",
+  buttons: [
+    {
+      label: "LinkedIn ↗",
+      href: "https://www.linkedin.com/in/tirth-dave-43954121a/",
+      variant: "outline",
+      external: true,
+    },
+    {
+      label: "GitHub ↗",
+      href: "https://github.com/TirthD",
+      variant: "outline",
+      external: true,
+    },
+    { label: "Résumé (PDF)", href: resumeHref, variant: "solid" },
   ],
+  footer: {
+    left: "Designed and built by Tirth Dave",
+    right: "Boston, 2026",
+  },
 };
 
 export const nav: NavItem[] = [
