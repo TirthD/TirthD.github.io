@@ -21,7 +21,7 @@
   --stop: var(--accent);
 
   /* Type — family */
-  --font-serif: var(--font-fraunces), Georgia, serif;
+  --font-serif: var(--font-fraunces, Georgia, serif); /* next/font appends its own Georgia fallback */
 
   /* Type — scale */
   --fs-name: clamp(88px, 12.5vw, 190px);
@@ -37,7 +37,7 @@
   --measure: 68ch;
   --section-pad: 120px;
   --section-pad-hero: 140px;
-  --nav-h: 72px;
+  --nav-h: 72px; /* measured, includes 1px border */
   --radius-panel: 6px;
   --tap: 44px;
   --btn-h: 52px;
@@ -48,7 +48,7 @@
     --gutter: 24px;
     --section-pad: 80px;
     --section-pad-hero: 112px;
-    --nav-h: 108px; /* links wrap below the name */
+    --nav-h: 109px; /* measured: name row + wrapped link row + border */
   }
 }
 

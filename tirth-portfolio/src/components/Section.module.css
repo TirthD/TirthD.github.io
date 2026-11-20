@@ -1,0 +1,42 @@
+.section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden; /* contains off-screen blooms; no horizontal scroll */
+  padding-block: var(--section-pad);
+}
+
+.tall {
+  padding-top: var(--section-pad-hero);
+}
+
+.sky {
+  background: var(--sky);
+}
+
+.orange {
+  background: var(--orange);
+}
+
+.cream {
+  background: var(--cream);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+
+.dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dot);
+}

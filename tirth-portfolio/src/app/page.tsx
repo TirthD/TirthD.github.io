@@ -1,25 +1,41 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/sections/Hero";
-import Experience from "@/components/sections/Experience";
-import Education from "@/components/sections/Education";
-import Projects from "@/components/sections/Projects";
-import RoleFilter from "@/components/sections/RoleFilter";
-import Contact from "@/components/sections/Contact";
-import Footer from "@/components/Footer";
+import Nav from "@/components/Nav";
+import Section, { SectionLabel } from "@/components/Section";
+import { nav, site } from "@/content";
 
+// Layout shell. Each placeholder is replaced by its real section component
+// in the following steps.
 export default function Home() {
   return (
     <>
-      <Navbar />
-      <main>
-        <Hero />
-        <Experience />
-        <Education />
-        <Projects />
-        <RoleFilter />
-        <Contact />
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
+      <Nav />
+      <main id="main">
+        <Section id="top" tone="sky" tall labelledBy="hero-title">
+          <h1 id="hero-title" className="t-name">
+            {site.name}
+            <span className="stop">.</span>
+          </h1>
+        </Section>
+
+        {nav.map((item, i) => (
+          <Section
+            key={item.id}
+            id={item.id}
+            tone={(["orange", "cream", "sky", "orange"] as const)[i]}
+            tall={item.id === "contact"}
+            labelledBy={`${item.id}-title`}
+          >
+            <SectionLabel num={item.num} name={item.label} />
+            <h2 id={`${item.id}-title`} className="t-heading">
+              {item.label}
+              <span className="stop">.</span>
+            </h2>
+            <div style={{ height: "60vh" }} />
+          </Section>
+        ))}
       </main>
-      <Footer />
     </>
   );
 }

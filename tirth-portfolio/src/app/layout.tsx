@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Fraunces } from "next/font/google";
+import { site } from "@/content";
 import "./globals.css";
 
 // One font for everything. Variable: wght is included by default;
@@ -14,37 +15,33 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Tirth Dave — AI Researcher · Data Engineer · Cloud",
-  description:
-    "Portfolio of Tirth Dave — MS in AI at Northeastern University. Building intelligent systems at the intersection of AI, data engineering, and cloud computing.",
-  keywords: [
-    "Tirth Dave", "AI Engineer", "Data Engineer", "Cloud Engineer",
-    "Machine Learning", "Snowflake", "Python", "Northeastern University",
-  ],
-  authors: [{ name: "Tirth Dave" }],
+  metadataBase: new URL(site.url),
+  title: site.title,
+  description: site.description,
+  authors: [{ name: site.name }],
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Tirth Dave — AI Researcher · Data Engineer · Cloud",
-    description: "Building intelligent systems at the intersection of AI, data engineering, and cloud.",
-    url: "https://tirthd.github.io",
-    siteName: "Tirth Dave",
+    title: site.title,
+    description: site.description,
+    url: site.url,
+    siteName: site.name,
     locale: "en_US",
     type: "website",
+    images: [{ url: site.ogImage, width: 1200, height: 630, alt: site.title }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tirth Dave — AI Researcher · Data Engineer · Cloud",
-    description: "Building intelligent systems at the intersection of AI, data engineering, and cloud.",
+    title: site.title,
+    description: site.description,
+    images: [site.ogImage],
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  robots: { index: true, follow: true },
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#ffffff",
+  themeColor: "#a8c5d8",
 };
 
 export default function RootLayout({
@@ -54,9 +51,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={fraunces.variable}>
-      <body>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

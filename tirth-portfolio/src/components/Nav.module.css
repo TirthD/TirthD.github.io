@@ -1,0 +1,87 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(168, 197, 216, 0.86); /* --sky at 86% */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--rule);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 32px;
+  min-height: calc(var(--nav-h) - 1px); /* + 1px border = --nav-h */
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  font-size: 21px;
+  font-weight: 500;
+  font-variation-settings: "opsz" 48, "SOFT" 100;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.links {
+  display: flex;
+  gap: 32px;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--tap);
+  font-size: var(--fs-meta);
+  text-decoration: none;
+}
+
+.num {
+  color: var(--slate);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.word {
+  color: var(--ink);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.link:hover .word {
+  text-decoration-color: var(--rule);
+}
+
+.link[data-active] .word {
+  text-decoration-color: var(--accent);
+}
+
+/* Mobile: links wrap onto their own row below the name, no hamburger */
+@media (max-width: 720px) {
+  .inner {
+    flex-wrap: wrap;
+    padding-block: 8px 4px;
+  }
+
+  .brand {
+    font-size: 20px;
+  }
+
+  .primary {
+    width: 100%;
+  }
+
+  .links {
+    justify-content: space-between;
+    gap: 8px;
+  }
+}
