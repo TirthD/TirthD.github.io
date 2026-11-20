@@ -1,0 +1,60 @@
+/* ─────────────────────────────────────────────
+   Design tokens — the single source of truth.
+   Colors were chosen to pass WCAG AA; don't swap in lighter shades.
+   ───────────────────────────────────────────── */
+
+:root {
+  /* Color */
+  --sky: #a8c5d8;    /* hero + path backgrounds, sticky nav */
+  --orange: #e07a45; /* Now + Contact backgrounds */
+  --cream: #f2eadb;  /* Work background, light blooms, text on dark buttons */
+  --ink: #1f1b16;    /* all primary text, primary buttons */
+  --slate: #2e3b44;  /* secondary text and labels on sky and cream */
+  --umber: #3a2214;  /* secondary text and labels on orange */
+  --accent: #d45f2a; /* dots, full stops, link underlines — sky/cream only, never body text */
+  --panel: #c9dae5;  /* image placeholder panels */
+  --rule: rgba(31, 27, 22, 0.25); /* divider lines */
+
+  /* Per-section contextual colors (overridden on orange sections) */
+  --meta: var(--slate);
+  --dot: var(--accent);
+  --stop: var(--accent);
+
+  /* Type — family */
+  --font-serif: var(--font-fraunces), Georgia, serif;
+
+  /* Type — scale */
+  --fs-name: clamp(88px, 12.5vw, 190px);
+  --fs-heading: clamp(40px, 4.4vw, 60px);
+  --fs-title: clamp(26px, 2.4vw, 34px);
+  --fs-stat: 36px;
+  --fs-body: clamp(18px, 1.4vw, 20px);
+  --fs-meta: clamp(15px, 1.1vw, 16px);
+
+  /* Layout */
+  --container: 1200px;
+  --gutter: 40px;
+  --measure: 68ch;
+  --section-pad: 120px;
+  --section-pad-hero: 140px;
+  --nav-h: 72px;
+  --radius-panel: 6px;
+  --tap: 44px;
+  --btn-h: 52px;
+}
+
+@media (max-width: 720px) {
+  :root {
+    --gutter: 24px;
+    --section-pad: 80px;
+    --section-pad-hero: 112px;
+    --nav-h: 108px; /* links wrap below the name */
+  }
+}
+
+/* Orange sections: orange accents vanish on orange, so swap them */
+.on-orange {
+  --meta: var(--umber);
+  --dot: var(--ink);
+  --stop: var(--cream);
+}

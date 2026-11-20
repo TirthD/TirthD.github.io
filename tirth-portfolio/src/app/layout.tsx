@@ -1,5 +1,17 @@
 import type { Metadata, Viewport } from "next";
+import { Fraunces } from "next/font/google";
 import "./globals.css";
+
+// One font for everything. Variable: wght is included by default;
+// SOFT and opsz are requested explicitly. Self-hosted at build time by next/font.
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  style: ["normal"],
+  axes: ["SOFT", "opsz"],
+  display: "swap",
+  fallback: ["Georgia", "serif"],
+  variable: "--font-fraunces",
+});
 
 export const metadata: Metadata = {
   title: "Tirth Dave — AI Researcher · Data Engineer · Cloud",
@@ -41,8 +53,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="bg-white text-[#1d1d1f] antialiased">
+    <html lang="en" className={fraunces.variable}>
+      <body>
         {children}
       </body>
     </html>
